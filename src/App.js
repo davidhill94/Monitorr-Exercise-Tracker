@@ -4,7 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Dashboard } from './components/Dashboard';
 import { EditExercise } from './components/EditExercise';
 import { CreateExercise } from './components/CreateExercise';
-import { CreateUser } from './components/CreateUser';
+import { CreateField } from './components/CreateField';
 import { HeroSection } from './components/HeroSection';
 import { Footer } from './components/Footer/Footer';
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/edit/:id" element={<EditExercise />} />
         <Route path="/create" element={<CreateExercise />} />
-        <Route path="/user" element={<CreateUser />} />
+        <Route path="/user" element={<CreateField />} />
       </Routes>
       <Footer />
     </Router>

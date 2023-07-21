@@ -26,10 +26,12 @@ connection.once("open", () => {
 //Requiring route files
 const exerciseRouter = require("./routes/exercises");
 const userRouter = require("./routes/users");
+const activityRouter = require("./routes/activity");
 
 //Use route files
 app.use("/exercises", exerciseRouter);
 app.use("/users", userRouter);
+app.use("/activity", activityRouter);
 
 //Listener
 app.listen(port, () => {

@@ -10,7 +10,8 @@ module.exports = {
       },
       gridTemplateRows: {
         "hero-rows": "2.5rem auto 2.5rem",
-        "form-input": "auto auto auto auto"
+        "form-input": "auto auto auto auto",
+        "dashboard": "10% 80% 10%"
       }
   },
     colors: {

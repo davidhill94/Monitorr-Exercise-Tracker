@@ -1,5 +1,5 @@
 import React from 'react';
-import background_one from '../images/background_one.jpg';
+import banner_one from '../images/banner_one.jpg';
 import { ButtonHero, ButtonHeroAlt } from './ButtonHero';
 
 export const HeroSection = () => {
@@ -11,7 +11,7 @@ export const HeroSection = () => {
       </div>
       <img
         className="h-[calc(100%-10rem)] w-full mt-10 object-cover col-start-1 col-end-6 row-start-1 items-center opacity-50"
-        src={background_one}
+        src={banner_one}
         alt="Background"
       />
       <div className="col-start-4 col-end-6 row-start-1 z-10 h-[calc(100%-5rem)] relative grid grid-rows-hero-rows border-alt border-dotted border-t-2 border-l-2 border-b-2">

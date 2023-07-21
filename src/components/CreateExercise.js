@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ExerciseForm } from './ExerciseForm';
-import background_img from '../images/monitorr_img3.jpg';
+import { ExerciseForm } from './FormComponents/ExerciseForm';
+import banner_five from '../images/banner_five.jpg';
 
 import axios from 'axios';
 
@@ -8,14 +8,19 @@ export const CreateExercise = () => {
 
   //Setting state
   const [username, setUsername] = useState("");
+  const [activity, setActivity] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
   const [users, setUsers] = useState([]);
+  const [activities, setActivities] = useState([]);
 
   //Sets state when input value is changing
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
+  };
+  const onChangeActivity = (e) => {
+    setActivity(e.target.value);
   };
   const onChangeDescription = (e) => {
     setDescription(e.target.value);
@@ -30,6 +35,7 @@ export const CreateExercise = () => {
     e.preventDefault();
     const exercise = {
       username: username,
+      activity: activity,
       description: description,
       duration: duration,
       date: date
@@ -39,16 +45,27 @@ export const CreateExercise = () => {
     axios.post("http://localhost:5000/exercises/add", exercise)
       .then(res => console.log(res.data));
 
-    window.location = "/"; //return user back to list of exercises
+    window.location = "/dashboard"; //return user back to list of exercises
   }
 
-  //Function that will run on initial render to retrieve backend data of all users in the database
+  //Function that will run on initial render to retrieve backend data of all users and activities in the database
   const handleLoad = async () => {
     await axios.get("http://localhost:5000/users/")
       .then(res => {
         if (res.data.length > 0) {
           setUsers(res.data.map(user => user.username));
           setUsername(res.data[0].username);
+        }
+      })
+      .catch((error) => {
+        // handle this error
+        console.log('error: ' + error);
+      })
+    await axios.get("http://localhost:5000/activity/")
+      .then(res => {
+        if (res.data.length > 0) {
+          setActivities(res.data.map(act => act.activity));
+          setActivity(res.data[0].username);
         }
       })
       .catch((error) => {
@@ -68,8 +85,12 @@ export const CreateExercise = () => {
         <ExerciseForm
           handleSubmit={handleSubmit}
           username={username}
+          setUsername={setUsername}
           onChangeUsername={onChangeUsername}
           users={users}
+          activities={activities}
+          activity={activity}
+          onChangeActivity={onChangeActivity}
           description={description}
           onChangeDescription={onChangeDescription}
           duration={duration}
@@ -81,7 +102,7 @@ export const CreateExercise = () => {
       </div>
       <img
         className="h-[calc(100%-10rem)] w-full mt-10 object-cover col-start-1 col-end-6 row-start-1 items-center opacity-50"
-        src={background_img}
+        src={banner_five}
         alt="Background"
       />
       <div className="col-start-4 col-end-6 row-start-1 z-10 h-[calc(100%-5rem)] relative grid grid-rows-hero-rows border-alt border-dotted border-t-2 border-l-2 border-b-2">

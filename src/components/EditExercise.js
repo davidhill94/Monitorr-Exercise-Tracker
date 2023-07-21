@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { ExerciseForm } from './ExerciseForm';
-import background_img from '../images/edit-background.jpg';
+import banner_three from '../images/banner_three.jpg';
+import { ExerciseForm } from './FormComponents/ExerciseForm';
 
 export const EditExercise = () => {
 
   //Setting State
   const [username, setUsername] = useState("");
+  const [activity, setActivity] = useState("");
+  const [activities, setActivities] = useState([]);
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
@@ -17,6 +19,9 @@ export const EditExercise = () => {
   //Handles change of target value and sets it to state
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
+  };
+  const onChangeActivity = (e) => {
+    setActivity(e.target.value);
   };
   const onChangeDescription = (e) => {
     setDescription(e.target.value);
@@ -31,6 +36,7 @@ export const EditExercise = () => {
     e.preventDefault();
     const exercise = {
       username: username,
+      activity: activity,
       description: description,
       duration: duration,
       date: date
@@ -48,6 +54,7 @@ export const EditExercise = () => {
     await axios.get("http://localhost:5000/exercises/" + params.id)
       .then(res => {
         setUsername(res.data.username);
+        setActivity(res.data.activity);
         setDescription(res.data.description);
         setDuration(res.data.duration);
         setDate(new Date(res.data.date));
@@ -66,6 +73,18 @@ export const EditExercise = () => {
       .catch((error) => {
         console.log("error: " + error);
       })
+
+      //GET Request that retrieves all activities and maps them to be used in an option tag
+      await axios.get("http://localhost:5000/activity/")
+      .then(res => {
+        if (res.data.length > 0) {
+          setActivities(res.data.map(act => act.activity));
+        }
+      })
+      .catch((error) => {
+        // handle this error
+        console.log('error: ' + error);
+      })
   };
 
   //Runs on initial render
@@ -81,6 +100,9 @@ export const EditExercise = () => {
         username={username}
         onChangeUsername={onChangeUsername}
         users={users}
+        activity={activity}
+        activities={activities}
+        onChangeActivity={onChangeActivity}
         description={description}
         onChangeDescription={onChangeDescription}
         duration={duration}
@@ -92,7 +114,7 @@ export const EditExercise = () => {
     </div>
     <img
       className="h-[calc(100%-10rem)] w-full mt-10 object-cover col-start-1 col-end-6 row-start-1 items-center opacity-50"
-      src={background_img}
+      src={banner_three}
       alt="Background"
     />
     <div className="col-start-4 col-end-6 row-start-1 z-10 h-[calc(100%-5rem)] relative grid grid-rows-hero-rows border-alt border-dotted border-t-2 border-l-2 border-b-2">

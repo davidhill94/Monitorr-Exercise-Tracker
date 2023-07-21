@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import dashimage from '../images/hero-img2.jpg';
-import { Table } from './Table/Table';
+import banner_two from '../images/banner_two.jpg';
+import { Table } from './DashboardComponents/Table/Table';
+import { Pagination } from './DashboardComponents/Table/Pagination';
+import { Filter } from './DashboardComponents/Table/Filter';
 
 export const Dashboard = () => {
 
   const [exercises, setExercises] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
 
   //GET request to retrieve all exercises in backend database
   const handleExerciseLoad = async () => {
@@ -29,11 +32,19 @@ export const Dashboard = () => {
     setExercises(exercises.filter(el => el._id !== id))
   }
 
+  //Handles Pagination
+  const exercisesPerPage = 5;
+  const pagesVisited = pageNumber * exercisesPerPage;
+  const pageCount = Math.ceil(exercises.length / exercisesPerPage);
+  const changePage = ({ selected }) => {
+    setPageNumber(selected)
+  }
+
   return (
     <div className="bg-primary h-[calc(100vh-5rem)] w-full relative grid grid-cols-5 grid-rows-1 font-primary">
       <img
         className="h-[calc(100%-10rem)] w-full mt-10 object-cover col-start-1 col-end-6 row-start-1 items-center opacity-50"
-        src={dashimage}
+        src={banner_two}
         alt="Bike" />
       <div className="col-start-1 col-end-3 row-start-1 z-10 h-[calc(100%-5rem)] relative grid grid-rows-hero-rows border-alt border-dotted border-t-2 border-r-2 border-b-2">
         <h2
@@ -41,8 +52,18 @@ export const Dashboard = () => {
           Welcome<br></br> to the Dashboard.
         </h2>
       </div>
-      <div className="col-start-3 col-end-6 row-start-1 flex flex-col items-center justify-center h-[calc(100vh-10rem)] w-100 z-10 p-6">
-        <Table exercises={exercises} deleteExercise={deleteExercise} />
+      <div className="col-start-3 col-end-6 row-start-1 grid grid-rows-dashboard h-[calc(100vh-15rem)] w-100 z-10 p-6 mt-10 ">
+        <Filter />
+        <Table
+          exercises={exercises}
+          deleteExercise={deleteExercise}
+          pagesVisited={pagesVisited}
+          exercisesPerPage={exercisesPerPage}
+        />
+        <Pagination
+          pageCount={pageCount}
+          changePage={changePage}
+        />
       </div>
     </div>
   )
