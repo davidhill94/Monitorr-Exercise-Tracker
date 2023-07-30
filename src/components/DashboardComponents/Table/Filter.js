@@ -149,7 +149,7 @@ export const Filter = ({ exercises, setExercises, setPageNumber }) => {
       </div>
       {filtered
         ?
-        <div ref={ref} className='flex flex-row justify-start items-center ml-2 w-full'>
+        <div className='flex flex-row justify-start items-center ml-2 w-full'>
           <select
             onChange={(user) => filterExerciseByAthlete(user)}
             className='mx-2 text-white bg-primary h-5 text-16 cursor-pointer'
@@ -176,7 +176,7 @@ export const Filter = ({ exercises, setExercises, setPageNumber }) => {
             })
             }
           </select>
-          <div className='relative'>
+          <div ref={ref} className='relative'>
             <button
               onClick={handleDurationSlider}
               className='bg-primary text-white p-1 inline-flex items-center justify-start h-5 text-16 mx-2'
