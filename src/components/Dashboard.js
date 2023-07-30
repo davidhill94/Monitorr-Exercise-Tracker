@@ -24,14 +24,6 @@ export const Dashboard = () => {
     handleExerciseLoad()
   }, []);
 
-  //Function that deletes an exercise with the relevent id
-  const deleteExercise = (id) => {
-    axios.delete("http://localhost:5000/exercises/" + id)
-      .then(res => console.log(res.data));
-    //removes exercises from current state and filters out the exercise we have just deleted
-    setExercises(exercises.filter(el => el._id !== id))
-  }
-
   //Handles Pagination
   const exercisesPerPage = 5;
   const pagesVisited = pageNumber * exercisesPerPage;
@@ -53,10 +45,14 @@ export const Dashboard = () => {
         </h2>
       </div>
       <div className="col-start-3 col-end-6 row-start-1 grid grid-rows-dashboard h-[calc(100vh-15rem)] w-100 z-10 p-6 mt-10 ">
-        <Filter />
+        <Filter 
+        exercises={exercises}
+        setExercises={setExercises}
+        setPageNumber={setPageNumber}
+        />
         <Table
           exercises={exercises}
-          deleteExercise={deleteExercise}
+          setExercises={setExercises}
           pagesVisited={pagesVisited}
           exercisesPerPage={exercisesPerPage}
         />

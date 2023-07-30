@@ -12,6 +12,9 @@ module.exports = {
         "hero-rows": "2.5rem auto 2.5rem",
         "form-input": "auto auto auto auto",
         "dashboard": "10% 80% 10%"
+      },
+      fontSize: {
+        "16": "16px"
       }
   },
     colors: {
