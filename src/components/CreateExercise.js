@@ -30,6 +30,7 @@ export const CreateExercise = () => {
   };
   const onChangeDate = (date) => {
     setDate(date);
+    console.log(date)
   };
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -3,7 +3,7 @@ import axios from 'axios';
 import banner_two from '../images/banner_two.jpg';
 import { Table } from './DashboardComponents/Table/Table';
 import { Pagination } from './DashboardComponents/Table/Pagination';
-import { Filter } from './DashboardComponents/Table/Filter';
+import { Filter } from './DashboardComponents/Filter/Filter';
 
 export const Dashboard = () => {
 
@@ -44,7 +44,7 @@ export const Dashboard = () => {
           Welcome<br></br> to the Dashboard.
         </h2>
       </div>
-      <div className="col-start-3 col-end-6 row-start-1 grid grid-rows-dashboard h-[calc(100vh-15rem)] w-100 z-10 p-6 mt-10 ">
+      <div className="col-start-3 col-end-6 row-start-1 grid grid-rows-dashboard h-[calc(100vh-15rem)] w-100 z-10 p-6 mt-10">
         <Filter 
         exercises={exercises}
         setExercises={setExercises}

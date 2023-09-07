@@ -24,7 +24,7 @@ export const Navbar = () => {
             <Link to="/user">Users</Link>
           </li>
           <li className='mx-6'>
-            <Link to="/user">Statistics</Link>
+            <Link to="/statistics">Statistics</Link>
           </li>
           <li className='mx-6 flex items-center justify-center'>
             <Link to="/register"><FaUser /></Link>

@@ -7,6 +7,7 @@ import { CreateExercise } from './components/CreateExercise';
 import { CreateField } from './components/CreateField';
 import { HeroSection } from './components/HeroSection';
 import { Footer } from './components/Footer/Footer';
+import { Statistics } from './components/Statistics';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/edit/:id" element={<EditExercise />} />
         <Route path="/create" element={<CreateExercise />} />
         <Route path="/user" element={<CreateField />} />
+        <Route path="/statistics" element={<Statistics />} />
       </Routes>
       <Footer />
     </Router>

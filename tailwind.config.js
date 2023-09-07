@@ -11,7 +11,8 @@ module.exports = {
       gridTemplateRows: {
         "hero-rows": "2.5rem auto 2.5rem",
         "form-input": "auto auto auto auto",
-        "dashboard": "10% 80% 10%"
+        "dashboard": "10% 80% 10%",
+        "statistics": "10% 90%"
       },
       fontSize: {
         "16": "16px"
