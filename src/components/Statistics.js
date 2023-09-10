@@ -91,6 +91,9 @@ export const Statistics = () => {
                             findMostCommonWord={findMostCommonWord}
                             findAverageDuration={findAverageDuration}
                             setAverageDuration={setAverageDuration}
+                            datesArr={datesArr}
+                            durationArr={durationArr}
+                            setGraphArr={setGraphArr}
                         />
                     </div>
                     {loading ?
@@ -109,6 +112,7 @@ export const Statistics = () => {
                                 durationArr={durationArr}
                                 setDurationArr={setDurationArr}
                                 setGraphArr={setGraphArr}
+                                graphArr={graphArr}
                             />
                             <Graph
                             datesArr={datesArr}

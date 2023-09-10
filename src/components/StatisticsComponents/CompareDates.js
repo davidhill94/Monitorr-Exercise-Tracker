@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
-import { createGraphData } from './Functions/CreateGraphData';
 import { findDates } from './Functions/DatesArr';
 
 export const CompareDates = ({ datesArr, exercises, setDatesArr, durationArr, setGraphArr }) => {
@@ -54,8 +53,7 @@ const compareDatesFunc = () => {
         selected={selectedDate}
         onChange={handleDateChange}
         />
-        <button onClick={() => createGraphData(datesArr, durationArr, setGraphArr)}>Graph</button>
-        <button onClick={() => findDates(exercises, setDatesArr)}>Click</button>
+        <button onClick={() => findDates(exercises, setDatesArr)}>create dates</button>
     </div>
   )
 }

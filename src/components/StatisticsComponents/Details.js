@@ -7,7 +7,7 @@ import { findDates } from './Functions/DatesArr';
 import { findDuration } from './Functions/DurationArr';
 import { CompareDates } from './CompareDates';
 
-export const Details = ({ total, users, athleteFilter, mostCommon, averageDuration, exercises, setDatesArr, datesArr, durationArr, setDurationArr, setGraphArr }) => {
+export const Details = ({ total, users, athleteFilter, mostCommon, averageDuration, exercises, setDatesArr, datesArr, durationArr, setDurationArr, setGraphArr, graphArr }) => {
 
   const handleFind = (exercises, setDatesArr, datesArr, setDurationArr, durationArr) => {
     findDates(exercises, setDatesArr);
@@ -26,7 +26,7 @@ export const Details = ({ total, users, athleteFilter, mostCommon, averageDurati
       <Total total={total} />
       <button onClick={() => handleFind(exercises, setDatesArr, datesArr, setDurationArr, durationArr)}>Find</button>
       <CompareDates datesArr={datesArr} exercises={exercises} setDatesArr={setDatesArr} durationArr={durationArr} setGraphArr={setGraphArr}/>
-      <button onClick={() => findDuration(exercises, setDurationArr)}>Dur</button>
+      <button onClick={() => console.log(graphArr)}>Get monthlyArr</button>
     </div>
   )
 }

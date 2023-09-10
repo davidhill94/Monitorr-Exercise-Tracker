@@ -1,3 +1,5 @@
+//Coverts data into monthly formatted date which displays the month and the total duration of activity per month 
+//Start and End date can be adjusted in the below function
 export const createGraphData = (datesArr, durationArr, setGraphArr) => {
 
     // Create an object to accumulate exercise durations by month
@@ -33,5 +35,4 @@ export const createGraphData = (datesArr, durationArr, setGraphArr) => {
     }));
 
     setGraphArr(monthlyArr);
-    console.log(monthlyArr)
 }

@@ -35,42 +35,43 @@ ChartJS.register(
 
 export const Graph = ({ durationArr, datesArr, graphArr }) => {
 
-    const [labelArr, setLableArr] = useState([]);
+    const [labelArr, setLabelArr] = useState([]);
     const [dataArr, setDataArr] = useState([]);
 
-    console.log(graphArr)
-
+    //Sets Graph Labels - Loops through the graphArr Array and pushes name objects into a new array which is then set to the labelArr State
     const graphLabels = () => {
         const newArr = [];
         for(let i = 0; i < graphArr.length; i++){
             newArr.push(graphArr[i].name);
         }
-        setLableArr(newArr);
+        setLabelArr(newArr);
     }
 
+    //Sets Graph Data - Loops through the graphArr Array and pushes data objects into a new array which is then set to the dataArr State
     const graphData = () => {
         const newArr = [];
         for(let i = 0; i < graphArr.length; i++){
             newArr.push(graphArr[i].total);
         }
         setDataArr(newArr);
-        console.log(newArr)
     }
 
+    //Runs graphLabels func to set graph labels on initial render
     useEffect(() => {
-        graphLabels()
-    }, [])
-
-    useEffect(() => {
-        graphData()
-    }, [])
+         graphLabels()
+     }, [])
+ 
+     //Runs graphData func to set graph data on initial render
+     useEffect(() => {
+         graphData()
+     }, [])
 
     const data = {
-        labels: graphLabels,
+        labels: labelArr,
         datasets: [
             {
                 label: 'My Line Chart',
-                data: graphData,
+                data: dataArr,
                 fill: true, // Set to false to display a line without filling the area beneath it
                 borderColor: "red",
                 backgroundColor: "blue",
@@ -108,7 +109,7 @@ export const Graph = ({ durationArr, datesArr, graphArr }) => {
     return (
         <div className='w-full h-full bg-white flex items-center justify-center'>
             <Line
-            className='p-4'
+                className='p-4'
                 data={data} options={options} />
         </div>
     )

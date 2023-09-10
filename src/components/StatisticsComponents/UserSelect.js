@@ -1,11 +1,13 @@
 import React from 'react';
+import { createGraphData } from './Functions/CreateGraphData';
 
-export const UserSelect = ({ users, filterAthlete, setAthleteFilter, exercises, setMostCommon, findMostCommonWord, setAverageDuration, findAverageDuration }) => {
+export const UserSelect = ({ users, filterAthlete, setAthleteFilter, exercises, setMostCommon, findMostCommonWord, setAverageDuration, findAverageDuration, datesArr, durationArr, setGraphArr }) => {
 
     const handleFunctions = (e) => {
         filterAthlete(e, setAthleteFilter);
         findMostCommonWord(exercises, setMostCommon);
         findAverageDuration(exercises, setAverageDuration);
+        createGraphData(datesArr, durationArr, setGraphArr)
     }
 
     return (
