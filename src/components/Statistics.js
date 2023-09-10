@@ -10,6 +10,7 @@ import { findMostCommonWord } from './StatisticsComponents/Functions/FindMostCom
 import { findAverageDuration } from './StatisticsComponents/Functions/FindAverageDuration';
 import { createGraphData } from './StatisticsComponents/Functions/CreateGraphData';
 import { YearSelector } from './StatisticsComponents/YearSelector';
+import { Loading } from './StatisticsComponents/Loading';
 
 export const Statistics = () => {
 
@@ -77,7 +78,7 @@ export const Statistics = () => {
             <div className="col-start-1 col-end-4 row-start-1 flex items-center justify-center h-[calc(100vh-10rem)] w-100 z-10">
                 <div className='grid grid-cols-statistics gap-2 h-[calc(100vh-15rem)] w-full z-10 p-6'>
                     {loading ?
-                        <p>Loading...</p>
+                        <Loading />
                         :
                         <>
                             <div className='h-full w-full flex flex-col col-start-1 col-end-2 pr-2'>
