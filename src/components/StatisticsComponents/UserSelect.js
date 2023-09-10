@@ -1,6 +1,8 @@
+//Renders a select form to switch between users and generate the selected users data
+
 import React from 'react';
 
-export const UserSelect = ({ users, filterAthlete, setAthleteFilter, exercises, setMostCommon, findMostCommonWord, setAverageDuration, findAverageDuration, datesArr, durationArr, setGraphArr }) => {
+export const UserSelect = ({ users, filterAthlete, setAthleteFilter, exercises, setMostCommon, findMostCommonWord, setAverageDuration, findAverageDuration }) => {
 
     const handleFunctions = (e) => {
         filterAthlete(e, setAthleteFilter);

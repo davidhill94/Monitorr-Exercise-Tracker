@@ -1,14 +1,4 @@
-//GRAPHS:
-//User duration graph- can be filtered per activity - done per month
-//Activities per week/month
-//Type of activity graph - doughnut
-
-//array to store number of activities 
-//array to store duration of exercises - DONE
-//array to store dates - DONE
-
-//Add data from same months 
-
+//Allows rendering of the graph - the graph takes in data and labels from the graphArr state 
 
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';

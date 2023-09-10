@@ -1,3 +1,5 @@
+//This component filters through the users state to find the date the user was first added to the database
+
 import React from 'react';
 
 export const Joined = ({ users, athleteFilter }) => {

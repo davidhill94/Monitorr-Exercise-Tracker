@@ -1,3 +1,5 @@
+//Select form that switches the selected year and renders the graph for the selected year
+
 import React from 'react';
 import { years } from './YearData';
 import { handleYear } from './Functions/SetYear';

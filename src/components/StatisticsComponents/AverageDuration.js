@@ -1,3 +1,5 @@
+//Displays the average duration of all exercises in the exercises array
+
 import React from 'react';
 
 export const AverageDuration = ({ averageDuration }) => {

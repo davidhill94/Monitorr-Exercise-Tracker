@@ -1,3 +1,5 @@
+//Data that contains year information that is used to render graphs for each year listed
+
 export const years = [
     {
         year: 2020,

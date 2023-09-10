@@ -1,15 +1,14 @@
-//Coverts data into monthly formatted date which displays the month and the total duration of activity per month 
-//Start and End date can be adjusted in the below function
+//Converts data into monthly formatted date which displays the month and the total duration of activity per month 
 export const createGraphData = (exercises, setGraphArr, year) => {
 
-    //findDates
+    //find Dates of each exercise and pushes them into new array
     const dat = [];
     const newDatArr = [...exercises.sort((a, b) => new Date(...b.date.split('-').reverse()) - new Date(...a.date.split('-').reverse()))];
     for (let i = 0; i < newDatArr.length; i++) {
         dat.push(newDatArr[i].date.substring(0, 10))
     }
 
-    //find duration
+    //finds duration of each exercise and pushes them into a new array
     const dur = [];
     const newDurArr = [...exercises.sort((a, b) => new Date(...b.date.split('-').reverse()) - new Date(...a.date.split('-').reverse()))];
     for (let i = 0; i < newDurArr.length; i++) {

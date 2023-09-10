@@ -1,3 +1,5 @@
+//Displays the favourite activity carried out by each user
+
 import React from 'react';
 
 export const Favourite = ({ mostCommon }) => {

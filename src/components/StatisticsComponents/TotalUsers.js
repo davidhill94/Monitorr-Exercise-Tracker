@@ -1,3 +1,5 @@
+//Renders the total number of users in the database
+
 import React from 'react'
 
 export const TotalUsers = ({ users }) => {

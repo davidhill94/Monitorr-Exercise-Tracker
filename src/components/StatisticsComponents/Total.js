@@ -1,3 +1,5 @@
+//This component renders the total number of exercises a user has carried out
+
 import React from 'react';
 
 export const Total = ({ total }) => {
