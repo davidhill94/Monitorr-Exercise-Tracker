@@ -44,9 +44,10 @@ export const createGraphData = (exercises, setGraphArr, year) => {
 
     // Convert the accumulated totals into the desired structure
     const monthlyArr = allMonths.map(month => ({
-        name: month,
+        name: month.substring(0, 3),
         total: monthlyTotals[month] || 0
     }));
 
     setGraphArr(monthlyArr);
+    console.log(monthlyArr)
 }
