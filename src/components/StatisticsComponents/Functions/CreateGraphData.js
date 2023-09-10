@@ -1,6 +1,6 @@
 //Coverts data into monthly formatted date which displays the month and the total duration of activity per month 
 //Start and End date can be adjusted in the below function
-export const createGraphData = (exercises, setGraphArr) => {
+export const createGraphData = (exercises, setGraphArr, year) => {
 
     //findDates
     const dat = [];
@@ -32,8 +32,8 @@ export const createGraphData = (exercises, setGraphArr) => {
     }
 
     // Get the range of months to include in the output
-    const startDate = new Date('2023-01-01');
-    const endDate = new Date('2023-12-31');
+    const startDate = new Date(`${year}-01-01`);
+    const endDate = new Date(`${year}-12-31`);
     const allMonths = [];
     let currentMonth = new Date(startDate);
 

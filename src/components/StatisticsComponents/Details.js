@@ -5,7 +5,7 @@ import { Favourite } from './Favourite';
 import { AverageDuration } from './AverageDuration';
 import { TotalUsers } from './TotalUsers';
 
-export const Details = ({ total, users, athleteFilter, mostCommon, averageDuration, totalUsers }) => {
+export const Details = ({ total, users, athleteFilter, mostCommon, averageDuration, year, setYear }) => {
 
   return (
     <div className='flex flex-col items-start justify-between min-w-fit h-full mt-4'>

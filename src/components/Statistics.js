@@ -21,6 +21,7 @@ export const Statistics = () => {
     const [averageDuration, setAverageDuration] = useState(0);
     const [loading, setLoading] = useState(true);
     const [graphArr, setGraphArr] = useState([]);
+    const [year, setYear] = useState("2023");
 
     //Filters exercises by username selected
     const filterExercise = async () => {
@@ -68,8 +69,8 @@ export const Statistics = () => {
     })
 
     useEffect(() => {
-        createGraphData(exercises, setGraphArr)
-    }, [exercises])
+        createGraphData(exercises, setGraphArr, year)
+    }, [exercises, year])
 
     return (
         <div className="bg-primary h-[calc(100vh-5rem)] w-full relative grid grid-cols-5 grid-rows-1">
@@ -92,7 +93,10 @@ export const Statistics = () => {
                                     setAverageDuration={setAverageDuration}
                                     setGraphArr={setGraphArr}
                                 />
-                                <YearSelector />
+                                <YearSelector 
+                                year={year}
+                                setYear={setYear}
+                                />
                                 <Details
                                     mostCommon={mostCommon}
                                     total={total}
@@ -102,6 +106,8 @@ export const Statistics = () => {
                                     exercises={exercises}
                                     setGraphArr={setGraphArr}
                                     graphArr={graphArr}
+                                    year={year}
+                                    setYear={setYear}
                                 />
                             </div>
                             <div className='w-full h-full col-start-2 col-end-3'>

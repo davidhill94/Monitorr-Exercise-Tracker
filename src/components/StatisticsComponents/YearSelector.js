@@ -1,10 +1,12 @@
 import React from 'react';
 import { years } from './YearData';
+import { handleYear } from './Functions/SetYear';
 
-export const YearSelector = () => {
+export const YearSelector = ( { year, setYear }) => {
   return (
-    <select
+     <select
             className='pr-2 mt-2'
+            onChange={(e) => handleYear(e, setYear)}
         >
             {years
             .map((item, index) => {
