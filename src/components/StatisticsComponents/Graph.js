@@ -33,7 +33,7 @@ ChartJS.register(
     Filler
 )
 
-export const Graph = ({ durationArr, datesArr, graphArr }) => {
+export const Graph = ({ graphArr }) => {
 
     const [labelArr, setLabelArr] = useState([]);
     const [dataArr, setDataArr] = useState([]);
@@ -59,24 +59,24 @@ export const Graph = ({ durationArr, datesArr, graphArr }) => {
     //Runs graphLabels func to set graph labels on initial render
     useEffect(() => {
          graphLabels()
-     }, [])
+     }, [graphArr])
  
      //Runs graphData func to set graph data on initial render
      useEffect(() => {
          graphData()
-     }, [])
+     }, [graphArr])
 
     const data = {
         labels: labelArr,
         datasets: [
             {
-                label: 'My Line Chart',
+                label: 'Total Activity Time per Month (minutes)',
                 data: dataArr,
-                fill: true, // Set to false to display a line without filling the area beneath it
-                borderColor: "red",
-                backgroundColor: "blue",
-                pointBorderColor: "grey",
-                tension: 0.1, // Controls the curvature of the line
+                fill: false, // Set to true to display a line with a filled area beneath it
+                borderColor: "#545454",
+                backgroundColor: "#bcfd4c",
+                pointBorderColor: "#545454",
+                tension: 0.2, // Controls the curvature of the line
             },
         ],
     };
@@ -89,7 +89,7 @@ export const Graph = ({ durationArr, datesArr, graphArr }) => {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    color: 'pink',
+                    color: '#545454',
                     font: {
                         size: 14,
                     }
@@ -97,7 +97,7 @@ export const Graph = ({ durationArr, datesArr, graphArr }) => {
             },
             x: {
                 ticks: {
-                    color: 'orange',
+                    color: '#545454',
                     font: {
                         size: 14,
                     }
@@ -107,7 +107,7 @@ export const Graph = ({ durationArr, datesArr, graphArr }) => {
     };
 
     return (
-        <div className='w-full h-full bg-white flex items-center justify-center'>
+        <div className='w-full h-full bg-white/75 flex items-center justify-center'>
             <Line
                 className='p-4'
                 data={data} options={options} />

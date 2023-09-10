@@ -1,8 +1,9 @@
+//Currently unused but may be useful if building a function to convert dates and compare them
+
 import React, { useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
-import { findDates } from './Functions/DatesArr';
 
-export const CompareDates = ({ datesArr, exercises, setDatesArr, durationArr, setGraphArr }) => {
+export const CompareDates = () => {
 
 const [selectedDate, setSelectedDate] = useState(null);
 const [convertedDate, setConvertedDate] = useState(null);
@@ -53,7 +54,6 @@ const compareDatesFunc = () => {
         selected={selectedDate}
         onChange={handleDateChange}
         />
-        <button onClick={() => findDates(exercises, setDatesArr)}>create dates</button>
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { createGraphData } from './Functions/CreateGraphData';
 
 export const UserSelect = ({ users, filterAthlete, setAthleteFilter, exercises, setMostCommon, findMostCommonWord, setAverageDuration, findAverageDuration, datesArr, durationArr, setGraphArr }) => {
 
@@ -7,12 +6,11 @@ export const UserSelect = ({ users, filterAthlete, setAthleteFilter, exercises, 
         filterAthlete(e, setAthleteFilter);
         findMostCommonWord(exercises, setMostCommon);
         findAverageDuration(exercises, setAverageDuration);
-        createGraphData(datesArr, durationArr, setGraphArr)
     }
 
     return (
         <select
-            className='mx-2 text-white bg-primary h-5 text-16 cursor-pointer'
+            className='pr-2'
             onChange={(e) => {
                 handleFunctions(e)
             }}

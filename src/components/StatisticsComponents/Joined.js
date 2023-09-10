@@ -6,10 +6,13 @@ export const Joined = ({ users, athleteFilter }) => {
         .filter(val => val.username === athleteFilter ? val.username : null)
         .map((item, index) => {
           return(
+            <div className='flex flex-col border-alt border-dotted border-r-2 border-b-2 w-full pl-1 pb-1 text-white'>
             <p
             key={index}
-            className='bg-secondary text-white'
-            >Joined: {item.createdAt.substring(0, 10)}</p>
+            className='text-white'
+            >Joined: </p>
+            <p>{item.createdAt.substring(0, 10)}</p>
+            </div>
           )
         })
   )

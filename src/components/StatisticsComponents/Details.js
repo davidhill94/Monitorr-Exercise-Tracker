@@ -1,32 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Joined } from './Joined';
 import { Total } from './Total';
 import { Favourite } from './Favourite';
 import { AverageDuration } from './AverageDuration';
-import { findDates } from './Functions/DatesArr';
-import { findDuration } from './Functions/DurationArr';
-import { CompareDates } from './CompareDates';
+import { TotalUsers } from './TotalUsers';
 
-export const Details = ({ total, users, athleteFilter, mostCommon, averageDuration, exercises, setDatesArr, datesArr, durationArr, setDurationArr, setGraphArr, graphArr }) => {
-
-  const handleFind = (exercises, setDatesArr, datesArr, setDurationArr, durationArr) => {
-    findDates(exercises, setDatesArr);
-    findDuration(exercises, setDurationArr);
-  }
-
-  useEffect(() => {
-    handleFind(exercises, setDatesArr, datesArr, setDurationArr, durationArr)
-  }, [])
+export const Details = ({ total, users, athleteFilter, mostCommon, averageDuration, totalUsers }) => {
 
   return (
-    <div className='flex flex-col items-start justify-start min-w-fit h-full p-4 bg-secondary'>
+    <div className='flex flex-col items-start justify-between min-w-fit h-full mt-4'>
+      {athleteFilter === "All" || athleteFilter === ""
+        ?
+        <TotalUsers users={users}/>
+        :
+        <></>
+      }
       <Joined users={users} athleteFilter={athleteFilter} />
       <Favourite mostCommon={mostCommon} />
       <AverageDuration averageDuration={averageDuration} />
       <Total total={total} />
-      <button onClick={() => handleFind(exercises, setDatesArr, datesArr, setDurationArr, durationArr)}>Find</button>
-      <CompareDates datesArr={datesArr} exercises={exercises} setDatesArr={setDatesArr} durationArr={durationArr} setGraphArr={setGraphArr}/>
-      <button onClick={() => console.log(graphArr)}>Get monthlyArr</button>
     </div>
   )
 }

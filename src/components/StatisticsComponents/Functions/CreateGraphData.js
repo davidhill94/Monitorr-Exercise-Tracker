@@ -1,20 +1,34 @@
 //Coverts data into monthly formatted date which displays the month and the total duration of activity per month 
 //Start and End date can be adjusted in the below function
-export const createGraphData = (datesArr, durationArr, setGraphArr) => {
+export const createGraphData = (exercises, setGraphArr) => {
+
+    //findDates
+    const dat = [];
+    const newDatArr = [...exercises.sort((a, b) => new Date(...b.date.split('-').reverse()) - new Date(...a.date.split('-').reverse()))];
+    for (let i = 0; i < newDatArr.length; i++) {
+        dat.push(newDatArr[i].date.substring(0, 10))
+    }
+
+    //find duration
+    const dur = [];
+    const newDurArr = [...exercises.sort((a, b) => new Date(...b.date.split('-').reverse()) - new Date(...a.date.split('-').reverse()))];
+    for (let i = 0; i < newDurArr.length; i++) {
+        dur.push(newDurArr[i].duration)
+    }
 
     // Create an object to accumulate exercise durations by month
     const monthlyTotals = {};
 
     // Loop through the dates and accumulate durations by month
-    for (let i = 0; i < datesArr.length; i++) {
-        const date = new Date(datesArr[i]);
+    for (let i = 0; i < dat.length; i++) {
+        const date = new Date(dat[i]);
         const monthYear = date.toLocaleString('default', { month: 'long', year: 'numeric' });
 
         if (!monthlyTotals[monthYear]) {
             monthlyTotals[monthYear] = 0;
         }
 
-        monthlyTotals[monthYear] += parseInt(durationArr[i]);
+        monthlyTotals[monthYear] += parseInt(dur[i]);
     }
 
     // Get the range of months to include in the output
