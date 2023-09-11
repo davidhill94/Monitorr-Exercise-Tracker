@@ -33,7 +33,7 @@ export const Statistics = () => {
                 )
             })
             .catch((err) => console.log(err))
-            .finally(() => setLoading(false))
+            .finally(setLoading(false))
     }
 
     //GET request to retrieve all users in backend database

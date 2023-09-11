@@ -4,11 +4,14 @@ import banner_two from '../images/banner_two.jpg';
 import { Table } from './DashboardComponents/Table/Table';
 import { Pagination } from './DashboardComponents/Table/Pagination';
 import { Filter } from './DashboardComponents/Filter/Filter';
+import { Info } from './DashboardComponents/Table/Info';
 
 export const Dashboard = () => {
 
   const [exercises, setExercises] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const [info, setInfo] = useState(false);
+  const [infoArr, setInfoArr] = useState([]);
 
   //GET request to retrieve all exercises in backend database
   const handleExerciseLoad = async () => {
@@ -44,8 +47,17 @@ export const Dashboard = () => {
           Welcome<br></br> to the Dashboard.
         </h2>
       </div>
-      <div className="col-start-3 col-end-6 row-start-1 grid grid-rows-dashboard h-[calc(100vh-15rem)] w-100 z-10 p-6 mt-10">
-        <Filter 
+      <div className="col-start-3 col-end-6 row-start-1 grid grid-rows-dashboard h-[calc(100vh-15rem)] w-100 z-10 p-6 mt-10 bg-test">
+      {info ? 
+      <Info 
+      infoArr={infoArr} 
+      setInfo={setInfo}
+      info={info}
+      setInfoArr={setInfoArr}
+      />
+      :
+      <>
+      <Filter 
         exercises={exercises}
         setExercises={setExercises}
         setPageNumber={setPageNumber}
@@ -55,11 +67,17 @@ export const Dashboard = () => {
           setExercises={setExercises}
           pagesVisited={pagesVisited}
           exercisesPerPage={exercisesPerPage}
+          info={info}
+          setInfo={setInfo}
+          infoArr={infoArr}
+          setInfoArr={setInfoArr}
         />
         <Pagination
           pageCount={pageCount}
           changePage={changePage}
         />
+        </>
+    }
       </div>
     </div>
   )
