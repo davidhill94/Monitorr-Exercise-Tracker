@@ -8,7 +8,7 @@ export const Table = ({ exercises, setExercises, pagesVisited, exercisesPerPage,
           <tr className="bg-alt text-secondary">
             <th>Username</th>
             <th>Activity</th>
-            <th>Duration</th>
+            <th>Duration (mins)</th>
             <th>Date</th>
             <th>Action</th>
           </tr>
