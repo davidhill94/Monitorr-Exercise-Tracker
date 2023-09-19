@@ -1,6 +1,5 @@
 import React from 'react';
 import { ExerciseList } from './ExerciseList';
-import { Info } from './Info';
 
 export const Table = ({ exercises, setExercises, pagesVisited, exercisesPerPage, info, setInfo, infoArr, setInfoArr }) => {
   return (

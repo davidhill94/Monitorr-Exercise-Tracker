@@ -47,7 +47,7 @@ export const Dashboard = () => {
           Welcome<br></br> to the Dashboard.
         </h2>
       </div>
-      <div className="col-start-3 col-end-6 row-start-1 grid grid-rows-dashboard h-[calc(100vh-15rem)] w-100 z-10 p-6 mt-10 bg-test">
+      <div className="col-start-3 col-end-6 row-start-1 grid grid-rows-dashboard h-[calc(100vh-15rem)] w-100 z-10 p-6 mt-10">
       {info ? 
       <Info 
       infoArr={infoArr} 

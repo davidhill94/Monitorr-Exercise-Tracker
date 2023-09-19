@@ -11,10 +11,12 @@ module.exports = {
       gridTemplateRows: {
         "hero-rows": "2.5rem auto 2.5rem",
         "form-input": "auto auto auto auto",
-        "dashboard": "10% 80% 10%"
+        "dashboard": "10% 80% 10%",
+        "info": "20% 20% 40% 20%"
       },
       gridTemplateColumns: {
-        "statistics": "20% 80%"
+        "statistics": "20% 80%",
+        "info": "50% 50%"
       },
       fontSize: {
         "16": "16px"
