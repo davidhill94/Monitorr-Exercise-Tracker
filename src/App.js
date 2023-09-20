@@ -9,6 +9,8 @@ import { HeroSection } from './components/HeroSection';
 import { Footer } from './components/Footer/Footer';
 import { Statistics } from './components/Statistics';
 import { About } from './components/About';
+import { Login } from './components/Login';
+import { Register } from './components/Register';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path="/user" element={<CreateField />} />
         <Route path="/statistics" element={<Statistics />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </Router>

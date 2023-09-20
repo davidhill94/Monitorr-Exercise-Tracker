@@ -27,6 +27,7 @@ module.exports = {
       secondary: "#545454",
       alt: "#bcfd4c",
       white: "#f2f2f2",
+      black: "#000",
       test: "#bababa"
     },
     fontFamily: {
