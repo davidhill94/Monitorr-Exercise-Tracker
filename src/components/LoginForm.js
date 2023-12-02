@@ -1,41 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaLock } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 
 export const LoginForm = ({ email, setEmail, password, setPassword }) => {
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  console.log(email)
-  console.log(password)
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email)
+    console.log(password)
+  }
 
   return (
     <div className='h-full w-full flex flex-col items-center justify-center text-black'>
-        <form className='w-1/2'>
-            <input 
-            onChange={(e) => {setEmail(e.target.value)}}
-            className="border-solid border-2 border-secondary w-full my-2 p-1 bg-white"
+      <form className='w-1/2'>
+        <div className='inline-flex w-full'>
+          <IoMdMail className='border-2 border-secondary bg-alt h-8 w-8 my-2 p-1' />
+          <input
+            onChange={(e) => { setEmail(e.target.value) }}
+            className="border-solid border-2 border-secondary w-full h-8 my-2 p-1 bg-white"
             type="email"
             required
             placeholder='Email address'
-            />
-            <input
-            onChange={(e) => {setPassword(e.target.value)}}
-            className="border-solid border-2 border-secondary w-full my-2 p-1 bg-white"
+          />
+        </div>
+        <div className='inline-flex w-full'>
+          <FaLock className='border-2 border-secondary bg-alt h-8 w-8 my-2 p-1' />
+          <input
+            onChange={(e) => { setPassword(e.target.value) }}
+            className="border-solid border-2 border-secondary w-full h-8 my-2 p-1 bg-white"
             type="password"
             required
             placeholder='Password'
-            />
-            <div className='flex items-center my-2'>
-            <input
-                    className='border-solid border-2 border-secondary text-secondary bg-alt px-1 cursor-pointer mr-2'
-                    type="submit"
-                    value="Login"
-                    onClick={(e) => handleSubmit(e)}
-                />
-            <p className='text-white'>Don't have an account? <span className='text-alt font-bold'><Link to="/register">Register</Link></span></p>
-            </div>   
-        </form>
+          />
+        </div>
+        <div className='flex items-center my-2'>
+          <input
+            className='border-solid border-2 border-secondary text-secondary bg-alt px-1 cursor-pointer mr-2'
+            type="submit"
+            value="Login"
+            onClick={(e) => handleSubmit(e)}
+          />
+          <p className='text-white'>Don't have an account? <span className='text-alt font-bold'><Link to="/register">Register</Link></span></p>
+        </div>
+      </form>
     </div>
   )
 }
