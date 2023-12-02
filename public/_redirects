@@ -1,1 +1,5 @@
+/*
+This code fixes a bug that was causing the site to crash when reloading with a route - eg. /dashboard
+*/
+
 /*    /index.html    200
