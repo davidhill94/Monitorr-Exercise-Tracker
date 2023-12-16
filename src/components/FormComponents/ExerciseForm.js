@@ -10,31 +10,37 @@ export const ExerciseForm = ({ handleSubmit, username, onChangeUsername, users, 
 
   return (
     <div
-      className="py-10 px-6 w-full h-full flex items-center justify-center font-primary">
+      className="w-full py-10 px-2w-full h-full flex items-center justify-center font-primary">
       <form
-        className="w-auto max-h-full grid grid-cols-2 grid-rows-form-input"
+        className="w-auto h-auto flex flex-col items-center justify-center"
         onSubmit={handleSubmit}>
-        <Athlete
-          users={users}
-          username={username}
-          onChangeUsername={onChangeUsername}
-        />
-        <Date
-          date={date}
-          onChangeDate={onChangeDate}
-        />
-        <Activity
-          activity={activity}
-          activities={activities}
-          onChangeActivity={onChangeActivity}
-        />
-        <Description
-          escription={description}
-          onChangeDescription={onChangeDescription} />
-        <Duration
-          duration={duration}
-          onChangeDuration={onChangeDuration}
-        />
+        <div className='w-full flex flex-col items-center justify-center sm:flex-row sm:my-2'>
+          <Athlete
+            users={users}
+            username={username}
+            onChangeUsername={onChangeUsername}
+          />
+          <Date
+            date={date}
+            onChangeDate={onChangeDate}
+          />
+        </div>
+        <div className='w-full flex flex-col items-center justify-center sm:flex-row sm:my-2'>
+          <Activity
+            activity={activity}
+            activities={activities}
+            onChangeActivity={onChangeActivity}
+          />
+          <Duration
+            duration={duration}
+            onChangeDuration={onChangeDuration}
+          />
+        </div>
+        <div className='w-full flex flex-col items-center justify-center sm:flex-row sm:my-2'>
+          <Description
+            description={description}
+            onChangeDescription={onChangeDescription} />
+        </div>
         <SubmitForm
           val={val}
         />

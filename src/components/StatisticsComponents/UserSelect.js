@@ -12,7 +12,7 @@ export const UserSelect = ({ users, filterAthlete, setAthleteFilter, exercises, 
 
     return (
         <select
-            className='pr-2 text-2xl sm:text-xl'
+            className='pr-2 text-xl'
             onChange={(e) => {
                 handleFunctions(e)
             }}

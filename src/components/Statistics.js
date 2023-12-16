@@ -11,8 +11,7 @@ import { findAverageDuration } from './StatisticsComponents/Functions/FindAverag
 import { createGraphData } from './StatisticsComponents/Functions/CreateGraphData';
 import { YearSelector } from './StatisticsComponents/YearSelector';
 import { Loading } from './StatisticsComponents/Loading';
-import { PageHeader, PageHeaderTop } from './PageHeader';
-import { BannerImage } from './BannerImage';
+import { PageHeaderTop } from './PageHeader';
 
 export const Statistics = () => {
 
@@ -76,8 +75,9 @@ export const Statistics = () => {
     }, [exercises, year])
 
     return (
-        <div className="bg-primary w-full relative grid grid-cols-container grid-rows-container font-primary max-md:grid-rows-container-tablet">
-            <div className="col-start-1 col-end-13 row-start-2 row-end-3 flex items-center justify-center h-auto w-100 z-10 my-6 sm:col-start-2 sm:col-end-12">
+        <div className="bg-primary w-full relative font-primary">
+             <PageHeaderTop text={"Statistics"} banner={banner_six} />
+            <div className="flex flex-col items-center justify-center w-full h-auto">
                 <div className='flex flex-col gap-2 w-full z-10 p-6'>
                     {loading ?
                         <Loading />
@@ -96,9 +96,9 @@ export const Statistics = () => {
                                     setAverageDuration={setAverageDuration}
                                     setGraphArr={setGraphArr}
                                 />
-                                <YearSelector 
-                                year={year}
-                                setYear={setYear}
+                                <YearSelector
+                                    year={year}
+                                    setYear={setYear}
                                 />
                                 <Details
                                     mostCommon={mostCommon}
@@ -122,7 +122,6 @@ export const Statistics = () => {
                     }
                 </div>
             </div>
-            <PageHeaderTop text={"Statistics"} />
         </div>
     )
 }

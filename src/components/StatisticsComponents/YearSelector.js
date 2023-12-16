@@ -7,7 +7,7 @@ import { handleYear } from './Functions/SetYear';
 export const YearSelector = ( { year, setYear }) => {
   return (
      <select
-            className='pr-2 mt-2 text-2xl sm:text-xl'
+            className='pr-2 mt-2 text-xl'
             onChange={(e) => handleYear(e, setYear)}
         >
             {years

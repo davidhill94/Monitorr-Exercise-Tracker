@@ -21,7 +21,7 @@ export const PageHeaderTop = ({ text, banner }) => {
     >
       <BackgroundDottedLinesTop />
       <h2
-        className="font-primary text-white text-lg drop-shadow-2xl shadow-secondary text-center sm:text-3xl">
+        className="font-primary text-white text-xl drop-shadow-2xl shadow-secondary text-center sm:text-3xl">
         {text}
       </h2>
       <BackgroundDottedLinesBottom />
