@@ -10,17 +10,23 @@ import { TotalUsers } from './TotalUsers';
 export const Details = ({ total, users, athleteFilter, mostCommon, averageDuration }) => {
 
   return (
-    <div className='flex flex-col items-start justify-between min-w-fit h-full mt-4'>
+    <div 
+    className='flex flex-row items-center justify-center w-full mt-4 flex-wrap text-center text-white'>
       {athleteFilter === "All" || athleteFilter === ""
         ?
-        <TotalUsers users={users}/>
+        <TotalUsers 
+        users={users}/>
         :
         <></>
       }
-      <Joined users={users} athleteFilter={athleteFilter} />
-      <Favourite mostCommon={mostCommon} />
-      <AverageDuration averageDuration={averageDuration} />
-      <Total total={total} />
+      <Joined 
+      users={users} athleteFilter={athleteFilter} />
+      <Favourite
+      mostCommon={mostCommon} />
+      <AverageDuration 
+      averageDuration={averageDuration} />
+      <Total
+      total={total} />
     </div>
   )
 }

@@ -11,6 +11,8 @@ import { findAverageDuration } from './StatisticsComponents/Functions/FindAverag
 import { createGraphData } from './StatisticsComponents/Functions/CreateGraphData';
 import { YearSelector } from './StatisticsComponents/YearSelector';
 import { Loading } from './StatisticsComponents/Loading';
+import { PageHeader, PageHeaderTop } from './PageHeader';
+import { BannerImage } from './BannerImage';
 
 export const Statistics = () => {
 
@@ -74,14 +76,14 @@ export const Statistics = () => {
     }, [exercises, year])
 
     return (
-        <div className="bg-primary h-[calc(100vh-5rem)] w-full relative grid grid-cols-5 grid-rows-1">
-            <div className="col-start-1 col-end-4 row-start-1 flex items-center justify-center h-[calc(100vh-10rem)] w-100 z-10">
-                <div className='grid grid-cols-statistics gap-2 h-[calc(100vh-15rem)] w-full z-10 p-6'>
+        <div className="bg-primary w-full relative grid grid-cols-container grid-rows-container font-primary max-md:grid-rows-container-tablet">
+            <div className="col-start-1 col-end-13 row-start-2 row-end-3 flex items-center justify-center h-auto w-100 z-10 my-6 sm:col-start-2 sm:col-end-12">
+                <div className='flex flex-col gap-2 w-full z-10 p-6'>
                     {loading ?
                         <Loading />
                         :
                         <>
-                            <div className='h-full w-full flex flex-col col-start-1 col-end-2 pr-2'>
+                            <div className='h-full w-full flex flex-col items-center justify-center pr-2'>
                                 <UserSelect
                                     users={users}
                                     setUsers={setUsers}
@@ -111,7 +113,7 @@ export const Statistics = () => {
                                     setYear={setYear}
                                 />
                             </div>
-                            <div className='w-full h-full col-start-2 col-end-3'>
+                            <div className='w-full h-full'>
                                 <Graph
                                     graphArr={graphArr}
                                 />
@@ -120,17 +122,7 @@ export const Statistics = () => {
                     }
                 </div>
             </div>
-            <img
-                className="h-[calc(100%-10rem)] w-full mt-10 object-cover col-start-1 col-end-6 row-start-1 items-center opacity-50"
-                src={banner_six}
-                alt="Background"
-            />
-            <div className="col-start-4 col-end-6 row-start-1 z-10 h-[calc(100%-5rem)] relative grid grid-rows-hero-rows border-alt border-dotted border-t-2 border-l-2 border-b-2">
-                <h2
-                    className="font-primary text-white h-full text-7xl leading-snug  self-start flex items-center pl-6 drop-shadow-2xl shadow-secondary row-start-2 row-end-3 font-bold">
-                    Statistics
-                </h2>
-            </div>
+            <PageHeaderTop text={"Statistics"} />
         </div>
     )
 }

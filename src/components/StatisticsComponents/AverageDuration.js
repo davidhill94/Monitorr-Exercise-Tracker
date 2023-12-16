@@ -5,9 +5,9 @@ import React from 'react';
 export const AverageDuration = ({ averageDuration }) => {
 
     return (
-        <div className='flex flex-col border-alt border-dotted border-r-2 border-b-2 w-full pl-1 pb-1 text-white'>
+        <div className='flex flex-col m-4 text-xl'>
             <p>Avg. Duration: </p>
-            <p>{isNaN(averageDuration) ? "Calculating..." : averageDuration === 0 ? 0 : Math.round(averageDuration) + " minutes"}</p>
+            <p className='text-alt italic'>{isNaN(averageDuration) ? "Calculating..." : averageDuration === 0 ? 0 : Math.round(averageDuration) + " minutes"}</p>
         </div>
     )
 }

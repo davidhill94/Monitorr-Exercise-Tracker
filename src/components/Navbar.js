@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MonitorrLogo from '../images/Monitorr_wrapped.png';
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaBars } from 'react-icons/fa';
+
 
 export const Navbar = () => {
 
@@ -14,6 +15,10 @@ export const Navbar = () => {
           alt="Monitorr Logo" />
       </NavLink>
       <div>
+        {window.innerWidth >= 1024 
+        
+        ? 
+
         <ul className='flex flex-row'>
           <li className='mx-6'>
             <NavLink 
@@ -53,6 +58,11 @@ export const Navbar = () => {
             </NavLink>
           </li>
         </ul>
+
+        :
+
+        <FaBars className='text-alt' />
+}
       </div>
     </nav>
   )

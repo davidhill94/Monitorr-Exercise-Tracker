@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import banner_three from '../images/banner_three.jpg';
 import { ExerciseForm } from './FormComponents/ExerciseForm';
+import { PageHeader } from './PageHeader';
+import { BannerImage } from './BannerImage';
 
 export const EditExercise = () => {
 
@@ -74,8 +76,8 @@ export const EditExercise = () => {
         console.log("error: " + error);
       })
 
-      //GET Request that retrieves all activities and maps them to be used in an option tag
-      await axios.get("http://localhost:5000/activity/")
+    //GET Request that retrieves all activities and maps them to be used in an option tag
+    await axios.get("http://localhost:5000/activity/")
       .then(res => {
         if (res.data.length > 0) {
           setActivities(res.data.map(act => act.activity));
@@ -93,36 +95,27 @@ export const EditExercise = () => {
   }, []);
 
   return (
-    <div className="bg-primary h-[calc(100vh-5rem)] w-full relative grid grid-cols-5 grid-rows-1">
-    <div className="col-start-1 col-end-4 row-start-1 flex items-center justify-center h-[calc(100vh-10rem)] w-100 z-10">
-      <ExerciseForm
-        handleSubmit={handleSubmit}
-        username={username}
-        onChangeUsername={onChangeUsername}
-        users={users}
-        activity={activity}
-        activities={activities}
-        onChangeActivity={onChangeActivity}
-        description={description}
-        onChangeDescription={onChangeDescription}
-        duration={duration}
-        onChangeDuration={onChangeDuration}
-        date={date}
-        onChangeDate={onChangeDate}
-        val={"Edit"}
-      />
+    <div className="bg-primary h-[calc(100vh-5rem)] w-full relative grid grid-cols-container grid-rows-1">
+      <div className="col-start-2 col-end-8 row-start-1 flex items-center justify-center h-[calc(100vh-10rem)] w-100 z-10">
+        <ExerciseForm
+          handleSubmit={handleSubmit}
+          username={username}
+          onChangeUsername={onChangeUsername}
+          users={users}
+          activity={activity}
+          activities={activities}
+          onChangeActivity={onChangeActivity}
+          description={description}
+          onChangeDescription={onChangeDescription}
+          duration={duration}
+          onChangeDuration={onChangeDuration}
+          date={date}
+          onChangeDate={onChangeDate}
+          val={"Edit"}
+        />
+      </div>
+      <BannerImage src={banner_three} />
+      <PageHeader text={"Edit Exercise"} />
     </div>
-    <img
-      className="h-[calc(100%-10rem)] w-full mt-10 object-cover col-start-1 col-end-6 row-start-1 items-center opacity-50"
-      src={banner_three}
-      alt="Background"
-    />
-    <div className="col-start-4 col-end-6 row-start-1 z-10 h-[calc(100%-5rem)] relative grid grid-rows-hero-rows border-alt border-dotted border-t-2 border-l-2 border-b-2">
-      <h2
-        className="font-primary text-white h-full text-7xl leading-snug  self-start flex items-center pl-6 drop-shadow-2xl shadow-secondary row-start-2 row-end-3 font-bold">
-        Edit <br></br> Exercise
-      </h2>
-    </div>
-  </div>
   )
 }

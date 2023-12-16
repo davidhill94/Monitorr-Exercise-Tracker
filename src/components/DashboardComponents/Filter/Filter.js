@@ -73,8 +73,8 @@ const handleDurationSlider = () => {
 
 
   return (
-    <div className='row-start-1 row-end-2 w-full flex items-center justify-start'>
-      <div className='flex items-center justify-between w-fit'>
+    <div className='row-start-1 row-end-2 w-full flex items-center justify-start flex-col md:flex-row'>
+      <div className='flex items-center justify-between w-fit md:pl-8'>
         <SelectFilter
         handleFilterOption={handleFilterOption}
         oldestDate={oldestDate}
@@ -96,17 +96,7 @@ const handleDurationSlider = () => {
       </div>
       {filtered
         ?
-        <div className='flex flex-row justify-start items-center ml-2 w-full'>
-          <AthleteFilter 
-          filterExerciseByAthlete={filterExerciseByAthlete}
-          setUserFilter={setUserFilter}
-          users={users}
-          />
-          <ActivityFilter 
-          filterExerciseByActivity={filterExerciseByActivity}
-          setActivityFilter={setActivityFilter}
-          activities={activities}
-          />
+        <div className='flex flex-row justify-center items-center w-full mt-2 md:justify-start md:mt-0 md:ml-2'>
           <div ref={ref} className='relative'>
             <DurationToggle 
             handleDurationSlider={handleDurationSlider}
@@ -122,6 +112,16 @@ const handleDurationSlider = () => {
             handleSettingDurationFilter={handleSettingDurationFilter}
             />
           </div>
+          <AthleteFilter 
+          filterExerciseByAthlete={filterExerciseByAthlete}
+          setUserFilter={setUserFilter}
+          users={users}
+          />
+          <ActivityFilter 
+          filterExerciseByActivity={filterExerciseByActivity}
+          setActivityFilter={setActivityFilter}
+          activities={activities}
+          />
         </div>
         :
         <></>

@@ -5,9 +5,9 @@ import React from 'react';
 export const Favourite = ({ mostCommon }) => {
 
     return (
-        <div className='flex flex-col border-alt border-dotted border-r-2 border-b-2 w-full pl-1 pb-1 text-white'>
+        <div className='flex flex-col m-4 text-xl'>
             <p>Favourite: </p>
-            <p>{mostCommon}</p>
+            <p className='text-alt italic'>{mostCommon}</p>
         </div>
     )
 }

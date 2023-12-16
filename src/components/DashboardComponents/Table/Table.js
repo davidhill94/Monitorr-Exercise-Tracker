@@ -3,12 +3,12 @@ import { ExerciseList } from './ExerciseList';
 
 export const Table = ({ exercises, setExercises, pagesVisited, exercisesPerPage, info, setInfo, infoArr, setInfoArr }) => {
   return (
-    <table className="w-full h-fit my-6 text-center text-white row-start-2 row-end-3">
+    <table className="w-full h-fit my-6 text-center text-white text-xs">
         <thead>
           <tr className="bg-alt text-secondary">
             <th>Username</th>
             <th>Activity</th>
-            <th>Duration (mins)</th>
+            <th>Minutes</th>
             <th>Date</th>
             <th>Action</th>
           </tr>

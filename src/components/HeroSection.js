@@ -1,25 +1,23 @@
 import React from 'react';
-import banner_one from '../images/banner_one.jpg';
+import banner_two from '../images/banner_two.jpg';
 import { ButtonHero, ButtonHeroAlt } from './ButtonHero';
+import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 
 export const HeroSection = () => {
   return (
-    <div className="bg-primary h-[calc(100vh-5rem)] w-full relative grid grid-cols-5 grid-rows-1">
-      <div className="col-start-1 col-end-4 row-start-1 flex items-center justify-center h-[calc(100vh-10rem)] w-100 z-10">
-        <ButtonHero buttontext={"Monitorr Now"} />
-        <ButtonHeroAlt buttontext={"Dashboard"} />
+    <div className="bg-primary h-auto w-full relative flex flex-col items-center justify-center bg-bannerHero bg-left bg-cover px-4 py-8">
+      <BackgroundDottedLinesTop />
+      <div className='lg:flex lg:flex-row lg:w-full lg:items-center lg:justify-center'>
+        <h2 className='font-primary text-white text-4xl text-center lg:w-full lg:mx-4'>Log. Track. Monitorr.</h2>
+        <div className="flex flex-col w-full h-auto bg-nonelg:w-full lg:mx-4">
+          <div className='flex flex-col items-center justify-center my-6 sm:flex-row lg:my-0'>
+            <ButtonHero buttontext={"Monitorr Now"} />
+            <ButtonHeroAlt buttontext={"Dashboard"} />
+          </div>
+          <p className='text-white italic text-center px-2'>Stay on top of your fitness habits with Monitorr</p>
+        </div>
       </div>
-      <img
-        className="h-[calc(100%-10rem)] w-full mt-10 object-cover col-start-1 col-end-6 row-start-1 items-center opacity-50"
-        src={banner_one}
-        alt="Background"
-      />
-      <div className="col-start-4 col-end-6 row-start-1 z-10 h-[calc(100%-5rem)] relative grid grid-rows-hero-rows border-alt border-dotted border-t-2 border-l-2 border-b-2">
-        <h2
-          className="font-primary text-white h-full text-7xl leading-snug  self-start flex items-center pl-6 drop-shadow-2xl shadow-secondary row-start-2 row-end-3 font-bold">
-          Log. <br></br> Track. <br></br> Monitor.
-        </h2>
-      </div>
+      <BackgroundDottedLinesBottom />
     </div>
   )
 }

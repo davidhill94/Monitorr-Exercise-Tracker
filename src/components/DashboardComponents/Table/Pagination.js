@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 export const Pagination = ({ pageCount, changePage }) => {
   return (
     <ReactPaginate
-    className='flex items-center justify-center h-full row-start-3 row-end-4'
+    className='flex items-center justify-center h-full'
       previousLabel="<"
       nextLabel=">"
       pageCount={pageCount}

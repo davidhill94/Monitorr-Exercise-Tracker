@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaInfoCircle } from 'react-icons/fa';
+import { FaInfoCircle, FaTrash, FaEdit } from 'react-icons/fa';
 import { Info } from './Info';
 
 export const ExerciseList = ({ exercises, setExercises, pagesVisited, exercisesPerPage, info, setInfo, setInfoArr }) => {
@@ -34,12 +34,12 @@ export const ExerciseList = ({ exercises, setExercises, pagesVisited, exercisesP
         .map((ex, index) => {
           return (
             <tr key={index} className='bg-secondary'>
-              <td className='py-1'>{ex.username}</td>
-              <td className='py-1'>{ex.activity}</td>
-              <td className='py-1'>{ex.duration}</td>
-              <td className='py-1'>{ex.date.substring(0, 10)}</td>
-              <td className='py-1'>
-                <Link to={"/edit/" + ex._id}>Edit</Link> | <button onClick={() => { deleteExercise(ex._id) }}>Delete</button> | <button className='align-text-top' onClick={() => handleInfoClick(ex._id)}><FaInfoCircle /></button>
+              <td className='py-4 lg:py-2'>{ex.username}</td>
+              <td className='py-4 lg:py-2'>{ex.activity}</td>
+              <td className='py-4 lg:py-2'>{ex.duration}</td>
+              <td className='py-4 lg:py-2'>{ex.date.substring(0, 10)}</td>
+              <td className='py-4 lg:py-2'>
+                <Link to={"/edit/" + ex._id}>Edit</Link> | <button onClick={() => { deleteExercise(ex._id) }}><FaTrash /></button> | <button className='align-text-top' onClick={() => handleInfoClick(ex._id)}><FaInfoCircle /></button>
               </td>
             </tr>
           )

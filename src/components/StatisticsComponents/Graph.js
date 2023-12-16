@@ -97,10 +97,12 @@ export const Graph = ({ graphArr }) => {
     };
 
     return (
-        <div className='w-full h-full bg-white/75 flex items-center justify-center'>
+        <div className='w-full h-64 bg-white/75 flex items-center justify-center sm:h-full'>
             <Line
                 className='p-4'
-                data={data} options={options} />
+                data={data} 
+                options={options}
+                />
         </div>
     )
 }

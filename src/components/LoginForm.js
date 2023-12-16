@@ -41,7 +41,7 @@ export const LoginForm = ({ email, setEmail, password, setPassword }) => {
             value="Login"
             onClick={(e) => handleSubmit(e)}
           />
-          <p className='text-white'>Don't have an account? <span className='text-alt font-bold'><Link to="/register">Register</Link></span></p>
+          <p className='text-white whitespace-nowrap'>Don't have an account? <span className='text-alt font-bold'><Link to="/register">Register</Link></span></p>
         </div>
       </form>
     </div>
