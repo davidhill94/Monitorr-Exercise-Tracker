@@ -9,7 +9,8 @@ module.exports = {
         'hero': "url('images/gradient_background.png')",
         "bannerHero": "url('images/banner_one.jpg')",
         "dashboard": "url('images/banner_two.jpg')",
-        "create-exercise": "url('images/banner_four.jpg')"
+        "create-exercise": "url('images/banner_four.jpg')",
+        "add-users": "url('images/banner_three.jpg')"
       },
       gridTemplateRows: {
         "hero-rows": "2.5rem auto 2.5rem",

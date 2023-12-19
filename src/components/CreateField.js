@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import banner_four from '../images/banner_four.jpg';
 import { UserForm } from './FormComponents/UserForm';
 import { ActivityForm } from './FormComponents/ActivityForm';
-import { PageHeader } from './PageHeader';
-import { BannerImage } from './BannerImage';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 
 export const CreateField = () => {
@@ -49,7 +46,7 @@ export const CreateField = () => {
     }
 
     return (
-        <div className="bg-primary h-auto w-full bg-create-exercise bg-center bg-cover px-4 py-8">
+        <div className="bg-primary h-auto w-full bg-add-users bg-center bg-cover px-4 py-8">
             <BackgroundDottedLinesTop />
             <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
                 <h2 className="font-primary text-white text-4xl text-center lg:w-full lg:mx-4 lg:text-6xl">Add Athlete or Activity</h2>
