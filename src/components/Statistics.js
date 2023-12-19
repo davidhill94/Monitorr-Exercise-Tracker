@@ -12,6 +12,8 @@ import { createGraphData } from './StatisticsComponents/Functions/CreateGraphDat
 import { YearSelector } from './StatisticsComponents/YearSelector';
 import { Loading } from './StatisticsComponents/Loading';
 import { PageHeaderTop } from './PageHeader';
+import { mockExerciseData } from './Mock Data/MockExercises';
+import { mockUsersData } from './Mock Data/MockUsers';
 
 export const Statistics = () => {
 
@@ -26,10 +28,12 @@ export const Statistics = () => {
     const [year, setYear] = useState("2023");
 
     //Filters exercises by username selected
+    ///*** TO REMOVE MOCK DATA: 1. Delete mockExercise variable 2. Replace mockExercises with res.data***///
     const filterExercise = async () => {
         await axios.get("http://localhost:5000/exercises/")
             .then(res => {
-                setExercises(res.data
+                const mockExercises = [...res.data, ...mockExerciseData];
+                setExercises(mockExercises
                     .filter(val => athleteFilter === "" || athleteFilter === "All" ? val.username : val.username === athleteFilter)
                 )
             })
@@ -38,10 +42,12 @@ export const Statistics = () => {
     }
 
     //GET request to retrieve all users in backend database
+    ///*** TO REMOVE MOCK DATA: 1. Delete mockUsers variable 2. Replace mockUsers with res.data in setUsers()***///
     const handleUserLoad = async () => {
         await axios.get("http://localhost:5000/users/")
             .then(res => {
-                setUsers(res.data)
+                const mockUsers = [...res.data, ...mockUsersData]
+                setUsers(mockUsers)
             })
             .catch((err) => console.log(err));
     }
@@ -54,6 +60,7 @@ export const Statistics = () => {
     //Runs whenever athleteFilter state is changed to rerender list
     useEffect(() => {
         filterExercise()
+        console.log(exercises)
     }, [athleteFilter])
 
     //Runs whenever the filterExercise() function is complete and exercise state has been updated

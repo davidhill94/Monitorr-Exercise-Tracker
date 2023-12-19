@@ -11,7 +11,7 @@ export const DurationSlider = ({ durationSlider, maxDuration, lower, setUpper, s
                 <ReactSlider
                   className="w-32 h-10 flex items-center justify-center"
                   trackClassName='absolute left-0 right-0 h-2 bg-alt rounded-full'
-                  thumbClassName='bg-test w-4 h-4 rounded-full leading-4 text-black cursor-grab'
+                  thumbClassName='bg-white w-4 h-4 rounded-full leading-4 text-secondary cursor-grab'
                   defaultValue={[0, maxDuration]}
                   ariaLabel={['Lower thumb', 'Upper thumb']}
                   renderThumb={(props, state) => <div {...props}></div>}

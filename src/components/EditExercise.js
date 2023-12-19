@@ -6,6 +6,8 @@ import { ExerciseForm } from './FormComponents/ExerciseForm';
 import { PageHeader } from './PageHeader';
 import { BannerImage } from './BannerImage';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
+import { mockActivityData } from "../components/Mock Data/MockActivities";
+import { mockUsersData } from "../components/Mock Data/MockUsers";
 
 export const EditExercise = () => {
 
@@ -67,10 +69,12 @@ export const EditExercise = () => {
       })
 
     //GET Request that retrieves all users and maps them to be used in an option tag
+    ///*** TO REMOVE MOCK DATA - delete mockUsers variable && change mockUsers to res.data ***///
     await axios.get("http://localhost:5000/users/")
       .then(res => {
-        if (res.data.length > 0) {
-          setUsers(res.data.map(user => user.username));
+        const mockUsers = [...res.data, ...mockUsersData]
+        if (mockUsers.length > 0) {
+          setUsers(mockUsers.map(user => user.username));
         }
       })
       .catch((error) => {
@@ -78,10 +82,12 @@ export const EditExercise = () => {
       })
 
     //GET Request that retrieves all activities and maps them to be used in an option tag
+     ///*** TO REMOVE MOCK DATA - delete mockActivites variable && change mockActivities to res.data ***///
     await axios.get("http://localhost:5000/activity/")
       .then(res => {
-        if (res.data.length > 0) {
-          setActivities(res.data.map(act => act.activity));
+        const mockActivities = [...res.data, ...mockActivityData]
+        if (mockActivities.length > 0) {
+          setActivities(mockActivities.map(act => act.activity));
         }
       })
       .catch((error) => {

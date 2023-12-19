@@ -6,6 +6,7 @@ import { Pagination } from './DashboardComponents/Table/Pagination';
 import { Filter } from './DashboardComponents/Filter/Filter';
 import { Info } from './DashboardComponents/Table/Info';
 import { PageHeaderTop } from './PageHeader';
+import { mockExerciseData } from './Mock Data/MockExercises';
 
 export const Dashboard = () => {
 
@@ -15,10 +16,11 @@ export const Dashboard = () => {
   const [infoArr, setInfoArr] = useState([]);
 
   //GET request to retrieve all exercises in backend database
+  //*** TO REMOVE MOCK DATA - setExercises(res.data) ***//
   const handleExerciseLoad = async () => {
     await axios.get("http://localhost:5000/exercises/")
       .then(res => {
-        setExercises(res.data)
+        setExercises([...res.data, ...mockExerciseData])
       })
       .catch((err) => console.log(err));
   }
@@ -35,7 +37,7 @@ export const Dashboard = () => {
   const changePage = ({ selected }) => {
     setPageNumber(selected)
   }
-
+  
   return (
     <div className="bg-primary flex flex-col w-full relative">
       <PageHeaderTop text={"Welcome to the Dashboard"} banner={banner_two}/>
