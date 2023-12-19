@@ -8,7 +8,7 @@ import { Info } from './DashboardComponents/Table/Info';
 import { PageHeaderTop } from './PageHeader';
 import { mockExerciseData } from './Mock Data/MockExercises';
 
-export const Dashboard = () => {
+export const Dashboard = ({ mockData }) => {
 
   const [exercises, setExercises] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
@@ -16,13 +16,16 @@ export const Dashboard = () => {
   const [infoArr, setInfoArr] = useState([]);
 
   //GET request to retrieve all exercises in backend database
-  //*** TO REMOVE MOCK DATA - setExercises(res.data) ***//
   const handleExerciseLoad = async () => {
+    if(mockData === true) {
+      setExercises(mockExerciseData);
+    } else {
     await axios.get("http://localhost:5000/exercises/")
       .then(res => {
-        setExercises([...res.data, ...mockExerciseData])
+        setExercises(res.data)
       })
       .catch((err) => console.log(err));
+    }
   }
 
   //Runs on initial render
@@ -55,6 +58,7 @@ export const Dashboard = () => {
         exercises={exercises}
         setExercises={setExercises}
         setPageNumber={setPageNumber}
+        mockData={mockData}
         />
         <Table
           exercises={exercises}
@@ -65,6 +69,7 @@ export const Dashboard = () => {
           setInfo={setInfo}
           infoArr={infoArr}
           setInfoArr={setInfoArr}
+          mockData={mockData}
         />
         <Pagination
           pageCount={pageCount}

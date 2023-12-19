@@ -3,8 +3,10 @@ import { ExerciseForm } from './FormComponents/ExerciseForm';
 import banner_five from '../images/banner_five.jpg';
 import axios from 'axios';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
+import { mockUsersData } from './Mock Data/MockUsers';
+import { mockActivityData } from './Mock Data/MockActivities';
 
-export const CreateExercise = () => {
+export const CreateExercise = ({ mockData }) => {
 
   //Setting state
   const [username, setUsername] = useState("");
@@ -51,28 +53,37 @@ export const CreateExercise = () => {
 
   //Function that will run on initial render to retrieve backend data of all users and activities in the database
   const handleLoad = async () => {
-    await axios.get("http://localhost:5000/users/")
-      .then(res => {
-        if (res.data.length > 0) {
-          setUsers(res.data.map(user => user.username));
-          setUsername(res.data[0].username);
-        }
-      })
-      .catch((error) => {
-        // handle this error
-        console.log('error: ' + error);
-      })
-    await axios.get("http://localhost:5000/activity/")
-      .then(res => {
-        if (res.data.length > 0) {
-          setActivities(res.data.map(act => act.activity));
-          setActivity(res.data[0].username);
-        }
-      })
-      .catch((error) => {
-        // handle this error
-        console.log('error: ' + error);
-      })
+    if (mockData === true) {
+      if (mockUsersData.length > 0) {
+        setUsers(mockUsersData.map(user => user.username));
+      }
+      if (mockActivityData.length > 0) {
+        setActivities(mockActivityData.map(user => user.activity));
+      }
+    } else {
+      await axios.get("http://localhost:5000/users/")
+        .then(res => {
+          if (res.data.length > 0) {
+            setUsers(res.data.map(user => user.username));
+            setUsername(res.data[0].username);
+          }
+        })
+        .catch((error) => {
+          // handle this error
+          console.log('error: ' + error);
+        })
+      await axios.get("http://localhost:5000/activity/")
+        .then(res => {
+          if (res.data.length > 0) {
+            setActivities(res.data.map(act => act.activity));
+            setActivity(res.data[0].username);
+          }
+        })
+        .catch((error) => {
+          // handle this error
+          console.log('error: ' + error);
+        })
+    }
   };
 
   //Runs on initial render

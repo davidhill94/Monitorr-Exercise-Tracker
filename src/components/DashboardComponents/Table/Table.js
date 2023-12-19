@@ -1,7 +1,7 @@
 import React from 'react';
 import { ExerciseList } from './ExerciseList';
 
-export const Table = ({ exercises, setExercises, pagesVisited, exercisesPerPage, info, setInfo, infoArr, setInfoArr }) => {
+export const Table = ({ exercises, setExercises, pagesVisited, exercisesPerPage, info, setInfo, infoArr, setInfoArr, mockData }) => {
   return (
     <table className="w-full h-fit my-6 text-center text-white text-xs">
         <thead>
@@ -23,6 +23,7 @@ export const Table = ({ exercises, setExercises, pagesVisited, exercisesPerPage,
           setInfo={setInfo}
           infoArr={infoArr}
           setInfoArr={setInfoArr}
+          mockData={mockData}
           />
         </tbody>
       </table>

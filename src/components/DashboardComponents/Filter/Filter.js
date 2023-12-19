@@ -17,7 +17,7 @@ import { ActivityFilter } from './ActivityFilter';
 import { DurationToggle } from './DurationToggle';
 import { DurationSlider } from './DurationSlider';
 
-export const Filter = ({ exercises, setExercises, setPageNumber }) => {
+export const Filter = ({ exercises, setExercises, setPageNumber, mockData }) => {
 
   //STATE
   const [filtered, setFiltered] = useState(false);
@@ -48,12 +48,12 @@ const handleDurationSlider = () => {
 
   //Runs on initial load to load activities list
   useEffect(() => {
-    handleActivitiesLoad(setActivities, setUsers)
+    handleActivitiesLoad(setActivities, setUsers, mockData)
   }, [])
 
   //Updates exercise list by running filter exercise func everytime a new filter selection is made
   useEffect(() => {
-    filterExercise(setExercises, userFilter, activityFilter, durationFilterMin, durationFilterMax, setPageNumber)
+    filterExercise(setExercises, userFilter, activityFilter, durationFilterMin, durationFilterMax, setPageNumber, mockData)
   }, [userFilter, activityFilter, durationFilterMin, durationFilterMax])
 
   //Checks to see if click is outside of the durationSlider element and closed the element if true

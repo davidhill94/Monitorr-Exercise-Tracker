@@ -9,7 +9,7 @@ import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './Backgro
 import { mockActivityData } from "../components/Mock Data/MockActivities";
 import { mockUsersData } from "../components/Mock Data/MockUsers";
 
-export const EditExercise = () => {
+export const EditExercise = ({ mockData }) => {
 
   //Setting State
   const [username, setUsername] = useState("");
@@ -51,7 +51,7 @@ export const EditExercise = () => {
     axios.post("http://localhost:5000/exercises/update/" + params.id, exercise)
       .then(res => console.log(res.data));
 
-    window.location = "/"; //return user back to list of exercises
+    window.location = "/dashboard"; //return user back to list of exercises
   }
 
   //A function that will run on initial load to retrieve data from backend using GET request to auto fill input values of the current exercise details
@@ -67,33 +67,38 @@ export const EditExercise = () => {
       .catch((error) => {
         console.log("error: " + error)
       })
+    //If mockData state is set to true, function will set exercises and users state to mock data otherwise data will be retrieved from backend database
+    if (mockData === true) {
+      if (mockUsersData.length > 0) {
+        setUsers(mockUsersData.map(user => user.username));
+      }
+      if (mockActivityData.length > 0) {
+        setActivities(mockActivityData.map(act => act.activity));
+      }
+    } else {
+      //GET Request that retrieves all users and maps them to be used in an option tag
+      await axios.get("http://localhost:5000/users/")
+        .then(res => {
+          if (res.data.length > 0) {
+            setUsers(res.data.map(user => user.username));
+          }
+        })
+        .catch((error) => {
+          console.log("error: " + error);
 
-    //GET Request that retrieves all users and maps them to be used in an option tag
-    ///*** TO REMOVE MOCK DATA - delete mockUsers variable && change mockUsers to res.data ***///
-    await axios.get("http://localhost:5000/users/")
-      .then(res => {
-        const mockUsers = [...res.data, ...mockUsersData]
-        if (mockUsers.length > 0) {
-          setUsers(mockUsers.map(user => user.username));
-        }
-      })
-      .catch((error) => {
-        console.log("error: " + error);
-      })
-
-    //GET Request that retrieves all activities and maps them to be used in an option tag
-     ///*** TO REMOVE MOCK DATA - delete mockActivites variable && change mockActivities to res.data ***///
-    await axios.get("http://localhost:5000/activity/")
-      .then(res => {
-        const mockActivities = [...res.data, ...mockActivityData]
-        if (mockActivities.length > 0) {
-          setActivities(mockActivities.map(act => act.activity));
-        }
-      })
-      .catch((error) => {
-        // handle this error
-        console.log('error: ' + error);
-      })
+        })
+      //GET Request that retrieves all activities and maps them to be used in an option tag
+      await axios.get("http://localhost:5000/activity/")
+        .then(res => {
+          if (res.data.length > 0) {
+            setActivities(res.data.map(act => act.activity));
+          }
+        })
+        .catch((error) => {
+          // handle this error
+          console.log('error: ' + error);
+        })
+    }
   };
 
   //Runs on initial render
@@ -103,10 +108,10 @@ export const EditExercise = () => {
 
   return (
     <div className="bg-primary h-auto w-full bg-create-exercise bg-center bg-cover px-4 py-8">
-    <BackgroundDottedLinesTop />
-    <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
-      <h2 className="font-primary text-white text-4xl text-center lg:w-full lg:mx-4 lg:text-6xl">Edit Exercise</h2>
-      <ExerciseForm
+      <BackgroundDottedLinesTop />
+      <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
+        <h2 className="font-primary text-white text-4xl text-center lg:w-full lg:mx-4 lg:text-6xl">Edit Exercise</h2>
+        <ExerciseForm
           handleSubmit={handleSubmit}
           username={username}
           onChangeUsername={onChangeUsername}
@@ -122,8 +127,8 @@ export const EditExercise = () => {
           onChangeDate={onChangeDate}
           val={"Edit"}
         />
+      </div>
+      <BackgroundDottedLinesBottom />
     </div>
-    <BackgroundDottedLinesBottom />
-  </div>
   )
 }
