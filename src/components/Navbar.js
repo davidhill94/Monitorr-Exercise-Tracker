@@ -4,7 +4,7 @@ import MonitorrLogo from '../images/Monitorr_wrapped.png';
 import { FaUser, FaBars } from 'react-icons/fa';
 
 
-export const Navbar = () => {
+export const Navbar = ({ sidebar, toggleSidebar }) => {
 
   return (
     <nav className="bg-primary text-white h-20 w-full flex flex-row justify-between items-center px-6 static top-0 left-0 font-primary text-xl">
@@ -22,32 +22,24 @@ export const Navbar = () => {
         <ul className='flex flex-row'>
           <li className='mx-6'>
             <NavLink 
-            to="/dashboard" 
-            className={({ isActive }) =>
-              isActive ? "border-b-2 border-r-2 border-dotted border-alt p-2" : "p-2"}
+            to="/dashboard"
             >Dashboard</NavLink>
           </li>
           <li className='mx-6'>
             <NavLink 
             to="/create"
-            className={({ isActive }) =>
-              isActive ? "border-b-2 border-r-2 border-dotted border-alt p-2" : "p-2"}
             >Exercise +
             </NavLink>
           </li>
           <li className='mx-6'>
             <NavLink 
             to="/user"
-            className={({ isActive }) =>
-              isActive ? "border-b-2 border-r-2 border-dotted border-alt p-2" : "p-2"}
             >Users
             </NavLink>
           </li>
           <li className='mx-6'>
             <NavLink 
             to="/statistics"
-            className={({ isActive }) =>
-              isActive ? "border-b-2 border-r-2 border-dotted border-alt p-2" : "p-2"}
             >Statistics
             </NavLink>
           </li>
@@ -61,7 +53,10 @@ export const Navbar = () => {
 
         :
 
-        <FaBars className='text-alt' />
+        <FaBars 
+        className='text-alt'
+        onClick={toggleSidebar}
+         />
 }
       </div>
     </nav>

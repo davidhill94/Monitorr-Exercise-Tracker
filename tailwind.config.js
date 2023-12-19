@@ -31,12 +31,10 @@ module.exports = {
       }
   },
     colors: {
-      primary: "#6e6e6e",
-      secondary: "#545454",
+      primary: "#1e1e1e",
+      secondary: "#333333",
       alt: "#bcfd4c",
       white: "#f2f2f2",
-      black: "#000",
-      test: "#bababa"
     },
     fontFamily: {
       primary: "'Ubuntu', sans-serif"

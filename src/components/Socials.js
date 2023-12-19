@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaReddit, FaPhone,  } from 'react-icons/fa';
 
 export const Socials = () => {
   return (
-    <div>
+    <div className='text-primary'>
         <ul className='flex text-xl justify-center items-center'>
             <li className='m-1 hover:scale-110 duration-150 hover:text-alt'>
                 <a 

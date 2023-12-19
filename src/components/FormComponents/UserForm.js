@@ -13,7 +13,7 @@ export const UserForm = ({ handleSubmitUsername, username, onChangeUsername }) =
     };
 
   return (
-    <form onSubmit={handleSubmitUsername} className='w-44 h-auto flex flex-col items-start mx-2'>
+    <form onSubmit={handleSubmitUsername} className='w-44 h-auto flex flex-col items-start my-4 md:my-0 md:mx-6 lg:mx-2'>
                     <div className='border-r-2 border-b-2 border-alt border-dotted pr-1'>
                         <label className="my-2 text-white">Athlete: </label>
                         <input

@@ -39,6 +39,22 @@ export const FooterLinks = () => {
                     </li>
                 </ul>
             </div>
+            <div className="p-2">
+                <ul onClick={goToTop} className='font-bold'>
+                    <li>
+                        <Link onClick={goToTop} to="/">Terms</Link>
+                    </li>
+                    <li>
+                        <Link onClick={goToTop} to="/">Careers</Link>
+                    </li>
+                    <li>
+                        <Link onClick={goToTop} to="/">Privacy</Link>
+                    </li>
+                    <li>
+                        <Link onClick={goToTop} to="/">Stories</Link>
+                    </li>
+                </ul>
+            </div>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import banner_three from '../images/banner_three.jpg';
 import { ExerciseForm } from './FormComponents/ExerciseForm';
 import { PageHeader } from './PageHeader';
 import { BannerImage } from './BannerImage';
+import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 
 export const EditExercise = () => {
 
@@ -95,9 +96,11 @@ export const EditExercise = () => {
   }, []);
 
   return (
-    <div className="bg-primary h-[calc(100vh-5rem)] w-full relative grid grid-cols-container grid-rows-1">
-      <div className="col-start-2 col-end-8 row-start-1 flex items-center justify-center h-[calc(100vh-10rem)] w-100 z-10">
-        <ExerciseForm
+    <div className="bg-primary h-auto w-full bg-create-exercise bg-center bg-cover px-4 py-8">
+    <BackgroundDottedLinesTop />
+    <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
+      <h2 className="font-primary text-white text-4xl text-center lg:w-full lg:mx-4 lg:text-6xl">Edit Exercise</h2>
+      <ExerciseForm
           handleSubmit={handleSubmit}
           username={username}
           onChangeUsername={onChangeUsername}
@@ -113,9 +116,8 @@ export const EditExercise = () => {
           onChangeDate={onChangeDate}
           val={"Edit"}
         />
-      </div>
-      <BannerImage src={banner_three} />
-      <PageHeader text={"Edit Exercise"} />
     </div>
+    <BackgroundDottedLinesBottom />
+  </div>
   )
 }

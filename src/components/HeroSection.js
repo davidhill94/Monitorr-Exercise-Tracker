@@ -5,7 +5,7 @@ import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './Backgro
 
 export const HeroSection = () => {
   return (
-    <div className="bg-primary h-auto w-full relative flex flex-col items-center justify-center bg-bannerHero bg-left bg-cover px-4 py-8">
+    <div className="bg-primary h-auto w-full relative flex flex-col items-center justify-center px-4 py-8 bg-bannerHero bg-left bg-cover">
       <BackgroundDottedLinesTop />
       <div className='lg:flex lg:flex-row lg:w-full lg:items-center lg:justify-center'>
         <h2 className='font-primary text-white text-4xl text-center lg:w-full lg:mx-4'>Log. Track. Monitorr.</h2>

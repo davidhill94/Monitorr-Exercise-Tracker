@@ -78,7 +78,7 @@ export const Statistics = () => {
         <div className="bg-primary w-full relative font-primary">
              <PageHeaderTop text={"Statistics"} banner={banner_six} />
             <div className="flex flex-col items-center justify-center w-full h-auto">
-                <div className='flex flex-col gap-2 w-full z-10 p-6'>
+                <div className='flex flex-col gap-2 w-full z-10 p-8'>
                     {loading ?
                         <Loading />
                         :

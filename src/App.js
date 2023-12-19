@@ -11,12 +11,22 @@ import { Statistics } from './components/Statistics';
 import { About } from './components/About';
 import { Login } from './components/Login';
 import { Register } from './components/Register';
+import { useState } from 'react';
+import { Sidebar } from './components/Sidebar';
 
 
 function App() {
+
+  const [sidebar, setSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebar(!sidebar);
+  }
+
   return (
     <Router>
-      <Navbar />
+      <Navbar sidebar={sidebar} toggleSidebar={toggleSidebar} />
+      <Sidebar sidebar={sidebar} toggleSidebar={toggleSidebar} />
       <Routes>
         <Route path="/" element={<HeroSection />} />
         <Route path="/dashboard" element={<Dashboard />} />

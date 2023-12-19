@@ -5,6 +5,7 @@ import { UserForm } from './FormComponents/UserForm';
 import { ActivityForm } from './FormComponents/ActivityForm';
 import { PageHeader } from './PageHeader';
 import { BannerImage } from './BannerImage';
+import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 
 export const CreateField = () => {
 
@@ -48,22 +49,24 @@ export const CreateField = () => {
     }
 
     return (
-        <div
-            className="bg-primary h-[calc(100vh-5rem)] w-full relative grid grid-cols-container grid-rows-1 font-primary">
-            <div className="col-start-2 col-end-8 row-start-1 flex items-center justify-center h-[calc(100vh-10rem)] w-100 z-10">
-                <UserForm
-                    handleSubmitUsername={handleSubmitUsername}
-                    username={username}
-                    onChangeUsername={onChangeUsername}
-                />
-                <ActivityForm
-                    handleSubmitActivity={handleSubmitActivity}
-                    activity={activity}
-                    onChangeActivity={onChangeActivity}
-                />
+        <div className="bg-primary h-auto w-full bg-create-exercise bg-center bg-cover px-4 py-8">
+            <BackgroundDottedLinesTop />
+            <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
+                <h2 className="font-primary text-white text-4xl text-center lg:w-full lg:mx-4 lg:text-6xl">Add Athlete or Activity</h2>
+                <div className="w-full py-10 px-2w-full h-full flex flex-col items-center justify-center font-primary md:flex-row">
+                    <UserForm
+                        handleSubmitUsername={handleSubmitUsername}
+                        username={username}
+                        onChangeUsername={onChangeUsername}
+                    />
+                    <ActivityForm
+                        handleSubmitActivity={handleSubmitActivity}
+                        activity={activity}
+                        onChangeActivity={onChangeActivity}
+                    />
+                </div>
             </div>
-            <BannerImage src={banner_four} />
-            <PageHeader text={"Add Athlete or Activity"} />
+            <BackgroundDottedLinesBottom />
         </div>
     )
 }
