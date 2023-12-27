@@ -19,7 +19,7 @@ export const Sidebar = ({ toggleSidebar, sidebar }) => {
                 onClick={toggleSidebar}>
                 <FaRegWindowClose className='text-alt text-2xl' />
             </button>
-            <div className='w-full h-full p-4 mt-16 flex items-center justify-start flex-col sm:items-start'>
+            <div className='w-full h-full px-4 py-16 flex items-center justify-center flex-col sm:items-start'>
                 <ul>
                     <li
                         className='border-alt border-dotted flex justify-start items-center h-12 w-36 pl-4 text-xl my-4 border-l-2'
