@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import MonitorrLogo from '../images/Monitorr_wrapped.png';
 import { FaUser, FaBars } from 'react-icons/fa';
 

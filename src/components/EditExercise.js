@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import banner_three from '../images/banner_three.jpg';
 import { ExerciseForm } from './FormComponents/ExerciseForm';
-import { PageHeader } from './PageHeader';
-import { BannerImage } from './BannerImage';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 import { mockActivityData } from "../components/Mock Data/MockActivities";
 import { mockUsersData } from "../components/Mock Data/MockUsers";

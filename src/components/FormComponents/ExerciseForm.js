@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Athlete } from './Athlete';
 import { Duration } from './Duration';
 import { Date } from './Date';

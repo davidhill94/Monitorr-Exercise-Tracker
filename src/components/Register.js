@@ -1,8 +1,5 @@
 import React from 'react';
-import banner_five from '../images/banner_five.jpg';
 import { RegisterForm } from './RegisterForm';
-import { PageHeader } from './PageHeader';
-import { BannerImage } from './BannerImage';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 
 export const Register = () => {

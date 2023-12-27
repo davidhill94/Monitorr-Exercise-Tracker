@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ExerciseForm } from './FormComponents/ExerciseForm';
-import banner_five from '../images/banner_five.jpg';
 import axios from 'axios';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 import { mockUsersData } from './Mock Data/MockUsers';

@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaInfoCircle, FaTrash, FaEdit } from 'react-icons/fa';
-import { Info } from './Info';
+import { FaInfoCircle, FaTrash } from 'react-icons/fa';
 
 export const ExerciseList = ({ exercises, setExercises, pagesVisited, exercisesPerPage, info, setInfo, setInfoArr, mockData }) => {
 

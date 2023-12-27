@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import banner_four from '../images/banner_four.jpg';
 import { LoginForm } from './LoginForm';
-import { PageHeader } from './PageHeader';
-import { BannerImage } from './BannerImage';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 
 export const Login = () => {

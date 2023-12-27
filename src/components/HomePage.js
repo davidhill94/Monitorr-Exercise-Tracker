@@ -1,7 +1,6 @@
 import React from 'react';
 import { HeroSection } from './HeroSection';
 import { StatisticsHero } from './StatisticsHero';
-import { Testimonials } from './Testimonials';
 import { HeroCards } from './HeroCards';
 import { HeroAbout } from './HeroAbout';
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import banner_two from '../images/banner_two.jpg';
 import { ButtonHero, ButtonHeroAlt } from './ButtonHero';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 
