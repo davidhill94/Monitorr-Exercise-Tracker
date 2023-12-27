@@ -10,7 +10,7 @@ export const FooterLinks = () => {
     };
 
     return (
-        <div className="w-full flex flex-row justify-evenly items-center py-4">
+        <div className="w-full flex flex-wrap flex-col ph:flex-row justify-evenly items-center py-4 text-center ph:text-left">
             <div className="p-2">
                 <h5 className="font-bold">Monitorr</h5>
                 <ul onClick={goToTop}>

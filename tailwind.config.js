@@ -4,13 +4,21 @@ module.exports = {
      "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    screens: {
+      "ph": "425px",
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1536px",
+    },
     extend: {
       backgroundImage: {
         'hero': "url('images/gradient_background.png')",
         "bannerHero": "url('images/banner_one.jpg')",
         "dashboard": "url('images/banner_two.jpg')",
         "create-exercise": "url('images/banner_four.jpg')",
-        "add-users": "url('images/banner_three.jpg')"
+        "add-users": "url('images/banner_three.jpg')",
+        "stats-hero": "url('images/background_one.png')"
       },
       gridTemplateRows: {
         "hero-rows": "2.5rem auto 2.5rem",
@@ -39,6 +47,9 @@ module.exports = {
     },
     fontFamily: {
       primary: "'Ubuntu', sans-serif"
+    },
+    boxShadow: {
+      card: "0px 2px 4px rgba(0, 0, 0, 0.2)"
     }
   },
   plugins: [],

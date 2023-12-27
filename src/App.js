@@ -5,7 +5,6 @@ import { Dashboard } from './components/Dashboard';
 import { EditExercise } from './components/EditExercise';
 import { CreateExercise } from './components/CreateExercise';
 import { CreateField } from './components/CreateField';
-import { HeroSection } from './components/HeroSection';
 import { Footer } from './components/Footer/Footer';
 import { Statistics } from './components/Statistics';
 import { About } from './components/About';
@@ -13,6 +12,8 @@ import { Login } from './components/Login';
 import { Register } from './components/Register';
 import { useState } from 'react';
 import { Sidebar } from './components/Sidebar';
+import { HomePage } from './components/HomePage';
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -28,10 +29,11 @@ function App() {
 
   return (
     <Router>
-      <Navbar sidebar={sidebar} toggleSidebar={toggleSidebar} />
+      <ScrollToTop />
+      <Navbar sidebar={sidebar} toggleSidebar={toggleSidebar} setSidebar={setSidebar}/>
       <Sidebar sidebar={sidebar} toggleSidebar={toggleSidebar} />
       <Routes>
-        <Route path="/" element={<HeroSection />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<Dashboard mockData={mockData}/>} />
         <Route path="/edit/:id" element={<EditExercise mockData={mockData}/>} />
         <Route path="/create" element={<CreateExercise mockData={mockData} />} />
