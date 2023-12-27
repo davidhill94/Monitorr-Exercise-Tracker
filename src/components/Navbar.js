@@ -69,7 +69,7 @@ export const Navbar = ({ sidebar, toggleSidebar }) => {
           :
 
           <FaBars
-            className='text-alt'
+            className='text-alt cursor-pointer'
             onClick={toggleSidebar}
           />
         }
