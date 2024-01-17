@@ -14,6 +14,8 @@ import { useState } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { HomePage } from './components/HomePage';
 import ScrollToTop from './components/ScrollToTop';
+import { HeroCards } from './components/HeroCards';
+import { HeroAbout } from './components/HeroAbout';
 
 
 function App() {

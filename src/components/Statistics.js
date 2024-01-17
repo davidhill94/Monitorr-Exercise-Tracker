@@ -14,6 +14,7 @@ import { Loading } from './StatisticsComponents/Loading';
 import { PageHeaderTop } from './PageHeader';
 import { mockExerciseData } from './Mock Data/MockExercises';
 import { mockUsersData } from './Mock Data/MockUsers';
+import { HeroAbout } from './HeroAbout';
 
 export const Statistics = ({ mockData }) => {
 
@@ -136,6 +137,7 @@ export const Statistics = ({ mockData }) => {
                     }
                 </div>
             </div>
+            <HeroAbout />
         </div>
     )
 }

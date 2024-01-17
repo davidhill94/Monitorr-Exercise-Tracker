@@ -4,6 +4,8 @@ import axios from 'axios';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
 import { mockUsersData } from './Mock Data/MockUsers';
 import { mockActivityData } from './Mock Data/MockActivities';
+import { HeroAbout } from './HeroAbout';
+import { StatisticsHero } from './StatisticsHero';
 
 export const CreateExercise = ({ mockData }) => {
 
@@ -91,6 +93,7 @@ export const CreateExercise = ({ mockData }) => {
   }, []);
 
   return (
+    <>
     <div className="bg-primary h-auto w-full bg-create-exercise bg-center bg-cover px-4 py-8">
       <BackgroundDottedLinesTop />
       <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
@@ -115,5 +118,8 @@ export const CreateExercise = ({ mockData }) => {
       </div>
       <BackgroundDottedLinesBottom />
     </div>
+    <StatisticsHero />
+    <HeroAbout />
+    </>
   )
 }

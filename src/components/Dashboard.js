@@ -7,6 +7,8 @@ import { Filter } from './DashboardComponents/Filter/Filter';
 import { Info } from './DashboardComponents/Table/Info';
 import { PageHeaderTop } from './PageHeader';
 import { mockExerciseData } from './Mock Data/MockExercises';
+import { HeroAbout } from './HeroAbout';
+import { StatisticsHero } from './StatisticsHero';
 
 export const Dashboard = ({ mockData }) => {
 
@@ -78,6 +80,8 @@ export const Dashboard = ({ mockData }) => {
         </>
     }
       </div>
+      <StatisticsHero />
+      <HeroAbout />
     </div>
   )
 }

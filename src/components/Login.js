@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { LoginForm } from './LoginForm';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
+import { StatisticsHero } from './StatisticsHero';
+import { HeroCards } from './HeroCards';
+import { HeroAbout } from './HeroAbout';
 
 export const Login = () => {
 
@@ -8,6 +11,7 @@ const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
   return (
+    <>
     <div className="bg-primary h-auto w-full bg-create-exercise bg-center bg-cover px-4 py-8">
     <BackgroundDottedLinesTop />
     <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
@@ -21,5 +25,9 @@ const [password, setPassword] = useState("");
     </div>
     <BackgroundDottedLinesBottom />
   </div>
+  <StatisticsHero />
+  <HeroCards />
+  <HeroAbout />
+  </>
   )
 }

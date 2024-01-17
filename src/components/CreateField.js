@@ -3,6 +3,8 @@ import axios from 'axios';
 import { UserForm } from './FormComponents/UserForm';
 import { ActivityForm } from './FormComponents/ActivityForm';
 import { BackgroundDottedLinesBottom, BackgroundDottedLinesTop } from './BackgroundDottedLines';
+import { HeroAbout } from './HeroAbout';
+import { StatisticsHero } from './StatisticsHero';
 
 export const CreateField = () => {
 
@@ -46,6 +48,7 @@ export const CreateField = () => {
     }
 
     return (
+        <>
         <div className="bg-primary h-auto w-full bg-add-users bg-center bg-cover px-4 py-8">
             <BackgroundDottedLinesTop />
             <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
@@ -65,5 +68,8 @@ export const CreateField = () => {
             </div>
             <BackgroundDottedLinesBottom />
         </div>
+        <StatisticsHero />
+        <HeroAbout />  
+        </>
     )
 }
